@@ -18,7 +18,7 @@ body {
   width: 30em;
   margin: auto;
   border: 3px var(--slategrey) solid;
-  padding: 1em 2em;
+  padding: 0 1.5em;
   border-radius: 20px;
 }
 
@@ -35,6 +35,11 @@ body {
 .instructions p {
   font-size: 0.9em;
   letter-spacing: 0.5px;
+}
+
+.border {
+  border-top: 2px solid var(--slategrey);
+  padding-top: 0.5em;
 }
 
 .instructions button {
