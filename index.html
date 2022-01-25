@@ -8,10 +8,12 @@
     <title>Wordle Copycat</title>
   </head>
   <body>
-    <div class="instructions">
+    <div class="instructions" id="instructions">
       <div class="header">
         <h1>HOW TO PLAY</h1>
-        <button>X</button>
+        <button onclick="exitInstructions()" aria-label="exit instructions">
+          X
+        </button>
       </div>
       <p>Guess the <b>WORDLE</b> in 6 tries.</p>
       <p>
