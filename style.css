@@ -1,0 +1,15 @@
+:root {
+  --darkgrey: #1a1a1b;
+  --slategrey: #3a3a3c;
+  --grey: #86888a;
+  --lightgrey: #787c7e;
+  --green: #538d4e;
+  --yellow: #b59f3b;
+  --white: #fff;
+}
+
+body {
+  font-family: sans-serif;
+  color: var(--white);
+  background: var(--darkgrey);
+}
