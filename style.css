@@ -18,12 +18,16 @@ body {
   width: 30em;
   margin: auto;
   border: 3px var(--slategrey) solid;
-  padding: 3em 2em;
+  padding: 1em 2em;
   border-radius: 20px;
 }
 
+.instructions .header {
+  display: flex;
+  margin-left: 11.5em;
+  justify-content: space-between;
+}
 .instructions h1 {
-  text-align: center;
   font-size: 1em;
   letter-spacing: 1px;
 }
