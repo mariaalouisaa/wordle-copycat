@@ -40,3 +40,27 @@ body {
   font-weight: 700;
   font-size: 18px;
 }
+
+.instructions .word-container {
+  display: flex;
+}
+
+.instructions .letter {
+  border: 3px var(--slategrey) solid;
+  font-size: 2em;
+  font-weight: 600;
+  width: 1.2em;
+  text-align: center;
+  margin: 3px;
+}
+
+.instructions .green {
+  background: var(--green);
+}
+.instructions .yellow {
+  background: var(--yellow);
+}
+
+.instructions .grey {
+  background: var(--lightgrey);
+}
