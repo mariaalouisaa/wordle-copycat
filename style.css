@@ -15,8 +15,13 @@ body {
 }
 
 .instructions {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: var(--darkgrey);
   width: 30em;
-  margin: auto;
   border: 3px var(--slategrey) solid;
   padding: 0 1.5em;
   border-radius: 20px;
@@ -42,7 +47,7 @@ body {
   padding-top: 0.5em;
 }
 
-.instructions button {
+button {
   background: none;
   border: none;
   color: var(--white);
