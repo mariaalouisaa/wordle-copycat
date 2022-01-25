@@ -13,3 +13,30 @@ body {
   color: var(--white);
   background: var(--darkgrey);
 }
+
+.instructions {
+  width: 30em;
+  margin: auto;
+  border: 3px var(--slategrey) solid;
+  padding: 3em 2em;
+  border-radius: 20px;
+}
+
+.instructions h1 {
+  text-align: center;
+  font-size: 1em;
+  letter-spacing: 1px;
+}
+
+.instructions p {
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+
+.instructions button {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 18px;
+}
