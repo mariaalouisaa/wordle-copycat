@@ -5,4 +5,4 @@ The task is to complete an issue in this repo, which I have created based one wh
 
 I have chosen to tackle Issue #1 to create the instructions. They appear on load, ontop of all other elements on the page, and can be closed and reopened.
 
-Coded and maintained entirely my myself. Based of [Wordle](https://www.powerlanguage.co.uk/wordle/)
+Coded and maintained entirely my myself. Based on [Wordle](https://www.powerlanguage.co.uk/wordle/)
