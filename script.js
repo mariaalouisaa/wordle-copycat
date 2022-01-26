@@ -1,13 +1,18 @@
+const instructions = document.getElementById("instructions");
+const stats = document.getElementById("statistics");
+
 //Functions for instructions visibility
 
-function exitInstructions(e) {
-  const instructions = document.getElementById("instructions");
+function exitInstructions() {
   instructions.classList.remove("visible");
   instructions.classList.add("hidden");
 }
 
-function showInstrustions(e) {
-  const instructions = document.getElementById("instructions");
+function showInstrustions() {
+  if (stats.classList.contains("visible")) {
+    stats.classList.remove("visible");
+    stats.classList.add("hidden");
+  }
   instructions.classList.remove("hidden");
   instructions.classList.add("visible");
 }
@@ -28,12 +33,19 @@ function getTime() {
   time.innerHTML = `${hours}:${mins}:${secs}`;
 }
 
-//getTime();
-
 //Function for statistics visability
 
-function exitStatistics(e) {
-  const stats = document.getElementById("statistics");
+function exitStatistics() {
   stats.classList.remove("visible");
   stats.classList.add("hidden");
+}
+
+function showStats() {
+  if (instructions.classList.contains("visible")) {
+    instructions.classList.remove("visible");
+    instructions.classList.add("hidden");
+  }
+  stats.classList.remove("hidden");
+  stats.classList.add("visible");
+  getTime();
 }
