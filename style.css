@@ -56,7 +56,7 @@ button:hover {
 }
 
 /* Styling for the instructions pop-up message*/
-.instructions .header {
+.header {
   display: flex;
   margin-left: 8.5em;
   justify-content: space-between;

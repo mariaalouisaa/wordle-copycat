@@ -13,7 +13,7 @@
   </head>
   <body>
     <!-- Instructions pop-up -->
-    <div class="instructions" id="instructions">
+    <div class="instructions visible" id="instructions">
       <div class="header">
         <h1>HOW TO PLAY</h1>
         <button onclick="exitInstructions()" aria-label="exit instructions">
@@ -57,8 +57,13 @@
       <p class="border"><b>A new WORDLE will be available each day!</b></p>
     </div>
     <!-- Instructions pop-up -->
-    <div class="statistics">
-      <h1>STATISTICS</h1>
+    <div class="statistics hidden" id="statistics">
+      <div class="header">
+        <h1>STATISTICS</h1>
+        <button onclick="exitStatistics()" aria-label="exit statistics">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
       <div class="stats-container">
         <div>
           <p>0</p>
@@ -86,6 +91,9 @@
     <header>
       <button aria-label="help" onclick="showInstrustions()">
         <i class="far fa-question-circle"></i>
+      </button>
+      <button aria-label="statistics" onclick="showStats()">
+        <i class="fas fa-chart-line"></i>
       </button>
     </header>
     <script src="script.js"></script>
