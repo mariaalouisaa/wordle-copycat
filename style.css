@@ -1,3 +1,4 @@
+/* Colours for entire app*/
 :root {
   --darkgrey: #1a1a1b;
   --slategrey: #3a3a3c;
@@ -8,6 +9,7 @@
   --white: #fff;
 }
 
+/* Styling for whole app*/
 body {
   font-family: sans-serif;
   color: var(--white);
@@ -15,7 +17,32 @@ body {
   padding: 1em;
 }
 
-.instructions {
+h1 {
+  font-size: 1em;
+  letter-spacing: 2px;
+}
+
+p {
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+
+button {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 20px;
+  opacity: 0.5;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/**/
+
+.instructions,
+.statistics {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -28,31 +55,16 @@ body {
   border-radius: 20px;
 }
 
+/* Styling for the instructions pop-up message*/
 .instructions .header {
   display: flex;
-  margin-left: 11.5em;
+  margin-left: 8.5em;
   justify-content: space-between;
-}
-.instructions h1 {
-  font-size: 1em;
-  letter-spacing: 1px;
-}
-
-.instructions p {
-  font-size: 0.9em;
-  letter-spacing: 0.5px;
 }
 
 .border {
   border-top: 2px solid var(--slategrey);
   padding-top: 0.5em;
-}
-
-button {
-  background: none;
-  border: none;
-  color: var(--white);
-  font-size: 20px;
 }
 
 .instructions .word-container {
@@ -78,6 +90,22 @@ button {
 .instructions .grey {
   background: var(--lightgrey);
 }
+
+/* Styling for the statitstics pop-up message */
+.statistics {
+  text-align: center;
+}
+.statistics .stats-container {
+  display: flex;
+  text-align: center;
+}
+
+.countdown {
+  font-size: 2.5em;
+  letter-spacing: 4px;
+}
+
+/*Clases to target in JS for element visibility*/
 
 .hidden {
   visibility: hidden;

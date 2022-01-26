@@ -56,10 +56,38 @@
       <p>The letter <b>G</b> is not in the word in any spot.</p>
       <p class="border"><b>A new WORDLE will be available each day!</b></p>
     </div>
+    <!-- Instructions pop-up -->
+    <div class="statistics">
+      <h1>STATISTICS</h1>
+      <div class="stats-container">
+        <div>
+          <p>0</p>
+          <p>Played</p>
+        </div>
+        <div>
+          <p>0</p>
+          <p>Win %</p>
+        </div>
+        <div>
+          <p>0</p>
+          <p>Current Streak</p>
+        </div>
+        <div>
+          <p>0</p>
+          <p>Max Streak</p>
+        </div>
+      </div>
+
+      <p><b>NEXT WORDLE</b></p>
+      <div id="coundown" class="countdown">00:00:00</div>
+    </div>
+
     <!-- Header -->
-    <button aria-label="help" onclick="showInstrustions()">
-      <i class="far fa-question-circle"></i>
-    </button>
+    <header>
+      <button aria-label="help" onclick="showInstrustions()">
+        <i class="far fa-question-circle"></i>
+      </button>
+    </header>
     <script src="script.js"></script>
   </body>
 </html>
