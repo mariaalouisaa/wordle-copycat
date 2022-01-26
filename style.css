@@ -12,13 +12,19 @@ body {
   font-family: sans-serif;
   color: var(--white);
   background: var(--darkgrey);
+  padding: 1em;
 }
 
 .instructions {
-  width: 30em;
-  margin: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: var(--darkgrey);
+  width: 24em;
   border: 3px var(--slategrey) solid;
-  padding: 1em 2em;
+  padding: 0 1.5em;
   border-radius: 20px;
 }
 
@@ -37,12 +43,16 @@ body {
   letter-spacing: 0.5px;
 }
 
-.instructions button {
+.border {
+  border-top: 2px solid var(--slategrey);
+  padding-top: 0.5em;
+}
+
+button {
   background: none;
   border: none;
   color: var(--white);
-  font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .instructions .word-container {
@@ -67,4 +77,16 @@ body {
 
 .instructions .grey {
   background: var(--lightgrey);
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
 }

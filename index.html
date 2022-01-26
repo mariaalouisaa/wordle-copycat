@@ -4,14 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/22ca1cdaec.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style.css" />
     <title>Wordle Copycat</title>
   </head>
   <body>
-    <div class="instructions">
+    <!-- Instructions pop-up -->
+    <div class="instructions" id="instructions">
       <div class="header">
         <h1>HOW TO PLAY</h1>
-        <button>X</button>
+        <button onclick="exitInstructions()" aria-label="exit instructions">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
       <p>Guess the <b>WORDLE</b> in 6 tries.</p>
       <p>
@@ -22,8 +29,7 @@
         After each guess, the color of the tiles will change to show how close
         your guess was to the word.
       </p>
-      <hr />
-      <p><b>Examples</b></p>
+      <p class="border"><b>Examples</b></p>
       <div class="word-container">
         <div class="letter green">C</div>
         <div class="letter">O</div>
@@ -48,9 +54,12 @@
         <div class="letter">C</div>
       </div>
       <p>The letter <b>G</b> is not in the word in any spot.</p>
-      <hr />
-      <p><b>A new WORDLE will be available each day!</b></p>
+      <p class="border"><b>A new WORDLE will be available each day!</b></p>
     </div>
+    <!-- Header -->
+    <button aria-label="help" onclick="showInstrustions()">
+      <i class="far fa-question-circle"></i>
+    </button>
     <script src="script.js"></script>
   </body>
 </html>
