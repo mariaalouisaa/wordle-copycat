@@ -57,8 +57,13 @@
       <p class="border"><b>A new WORDLE will be available each day!</b></p>
     </div>
     <!-- Instructions pop-up -->
-    <div class="statistics">
-      <h1>STATISTICS</h1>
+    <div class="statistics" id="statistics">
+      <div class="header">
+        <h1>STATISTICS</h1>
+        <button onclick="exitStatistics()" aria-label="exit statistics">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
       <div class="stats-container">
         <div>
           <p>0</p>

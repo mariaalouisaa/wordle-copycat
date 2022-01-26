@@ -29,3 +29,11 @@ function getTime() {
 }
 
 //getTime();
+
+//Function for statistics visability
+
+function exitStatistics(e) {
+  const stats = document.getElementById("statistics");
+  stats.classList.remove("visible");
+  stats.classList.add("hidden");
+}
