@@ -13,4 +13,4 @@ An addition to the same features in the instructions pop-up I have used JavaScri
 
 Hosted on Github Pages **Soon to be linked**
 
-Coded and maintained entirely my myself. Based on [Wordle](https://www.powerlanguage.co.uk/wordle/)
+Coded and maintained entirely my myself. Design a mimic of [Wordle](https://www.powerlanguage.co.uk/wordle/)
