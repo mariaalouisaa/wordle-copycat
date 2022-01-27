@@ -13,7 +13,7 @@
   </head>
   <body>
     <!-- Instructions pop-up -->
-    <div class="instructions visible" id="instructions">
+    <div class="instructions pop-up visible" id="instructions">
       <div class="header">
         <h1>HOW TO PLAY</h1>
         <button onclick="exitInstructions()" aria-label="exit instructions">
@@ -57,7 +57,7 @@
       <p class="border"><b>A new WORDLE will be available each day!</b></p>
     </div>
     <!-- Instructions pop-up -->
-    <div class="statistics hidden" id="statistics">
+    <div class="statistics pop-up hidden" id="statistics">
       <div class="header">
         <h1>STATISTICS</h1>
         <button onclick="exitStatistics()" aria-label="exit statistics">
@@ -65,28 +65,39 @@
         </button>
       </div>
       <div class="stats-container">
-        <div>
-          <p>0</p>
-          <p>Played</p>
+        <div class="column">
+          <p class="data">0</p>
+          <p class="sml">Played</p>
         </div>
-        <div>
-          <p>0</p>
-          <p>Win %</p>
+        <div class="column">
+          <p class="data">0</p>
+          <p class="sml">Win %</p>
         </div>
-        <div>
-          <p>0</p>
-          <p>Current Streak</p>
+        <div class="column">
+          <p class="data">0</p>
+          <p class="sml">Current Streak</p>
         </div>
-        <div>
-          <p>0</p>
-          <p>Max Streak</p>
+        <div class="column">
+          <p class="data">0</p>
+          <p class="sml">Max Streak</p>
         </div>
       </div>
-
-      <p><b>NEXT WORDLE</b></p>
-      <div id="coundown" class="countdown">00:00:00</div>
+      <div class="footer-container">
+        <div class="countdown-container">
+          <p><b>NEXT WORDLE</b></p>
+          <div id="coundown" class="countdown">00:00:00</div>
+        </div>
+        <div>
+          <button class="share" onclick="shareStats()">
+            SHARE <i class="fas fa-share-alt"></i>
+          </button>
+        </div>
+      </div>
     </div>
-
+    <!-- Clipboard confirmation -->
+    <div class="confirm-msg pop-up hidden" id="confirm-msg">
+      <p>Copied to clipboard!</p>
+    </div>
     <!-- Header -->
     <header>
       <button aria-label="help" onclick="showInstrustions()">

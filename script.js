@@ -1,5 +1,6 @@
 const instructions = document.getElementById("instructions");
 const stats = document.getElementById("statistics");
+const confirm = document.getElementById("confirm-msg");
 
 //Functions for instructions visibility
 
@@ -48,4 +49,21 @@ function showStats() {
   stats.classList.remove("hidden");
   stats.classList.add("visible");
   getTime();
+}
+
+//Function to share stats
+let gameNumber = 223;
+let completedIn = 3;
+let solution = `⬛⬛🟨⬛⬛
+⬛🟨🟨🟨⬛
+🟩🟩🟩🟩🟩`;
+
+function shareStats() {
+  const personalStats = `Wordle ${gameNumber} ${completedIn}/6 ${solution}`;
+  navigator.clipboard.writeText(personalStats).then(function () {
+    confirm.classList.add("visible");
+    setTimeout(function () {
+      confirm.classList.remove("visible");
+    }, 1500);
+  });
 }
