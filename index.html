@@ -13,7 +13,7 @@
   </head>
   <body>
     <!-- Instructions pop-up -->
-    <div class="instructions visible" id="instructions">
+    <div class="instructions pop-up visible" id="instructions">
       <div class="header">
         <h1>HOW TO PLAY</h1>
         <button onclick="exitInstructions()" aria-label="exit instructions">
@@ -57,7 +57,7 @@
       <p class="border"><b>A new WORDLE will be available each day!</b></p>
     </div>
     <!-- Instructions pop-up -->
-    <div class="statistics hidden" id="statistics">
+    <div class="statistics pop-up hidden" id="statistics">
       <div class="header">
         <h1>STATISTICS</h1>
         <button onclick="exitStatistics()" aria-label="exit statistics">
@@ -83,16 +83,21 @@
         </div>
       </div>
       <div class="footer-container">
-        <div>
+        <div class="countdown-container">
           <p><b>NEXT WORDLE</b></p>
           <div id="coundown" class="countdown">00:00:00</div>
         </div>
         <div>
-          <button class="share">SHARE <i class="fas fa-share-alt"></i></button>
+          <button class="share" onclick="shareStats()">
+            SHARE <i class="fas fa-share-alt"></i>
+          </button>
         </div>
       </div>
     </div>
-
+    <!-- Clipboard confirmation -->
+    <div class="confirm-msg pop-up hidden" id="confirm-msg">
+      <p>Copied to clipboard!</p>
+    </div>
     <!-- Header -->
     <header>
       <button aria-label="help" onclick="showInstrustions()">

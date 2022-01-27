@@ -41,8 +41,7 @@ button:hover {
 
 /* Styling for pop-up messages (how to & stats)*/
 
-.instructions,
-.statistics {
+.pop-up {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -117,8 +116,8 @@ button:hover {
 }
 
 .countdown {
-  font-size: 2.5em;
-  letter-spacing: 4px;
+  font-size: 2em;
+  letter-spacing: 3px;
 }
 
 .footer-container {
@@ -130,13 +129,26 @@ button:hover {
   gap: 2em;
 }
 
+.countdown-container {
+  padding-inline-end: 1em;
+  border-inline-end: 2px solid var(--slategrey);
+}
 .share {
   background: var(--green);
   opacity: 100;
-  padding: 0.5em 1em;
+  padding: 0.8em 1.2em;
   border-radius: 10px;
   font-weight: 600;
   letter-spacing: 2px;
+}
+
+/* Styling for clipboard confirmation */
+.confirm-msg {
+  background: var(--white);
+  color: var(--darkgrey);
+  width: 12em;
+  text-align: center;
+  font-weight: 800;
 }
 
 /*Clases to target in JS for element visibility*/
@@ -144,11 +156,11 @@ button:hover {
 .hidden {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s linear 300ms, opacity 300ms;
+  transition: visibility 0s linear 400ms, opacity 400ms;
 }
 
 .visible {
   visibility: visible;
   opacity: 1;
-  transition: visibility 0s linear 0s, opacity 300ms;
+  transition: visibility 0s linear 0s, opacity 400ms;
 }
