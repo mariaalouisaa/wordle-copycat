@@ -4,6 +4,8 @@ Take home project for [Founders & Coders](https://learn.foundersandcoders.com/),
 
 The task given is to complete an issue in this repo, which I have created based one what the user story would be for Wordle.
 
+---
+
 I have chosen to tackle Issue #1 to create the instructions. They appear on load, ontop of all other elements on the page, and can be closed and reopened.
 
 I have used:
@@ -14,6 +16,8 @@ I have also decided to tackle Issue #6 Statistics on pop-up. This element too ca
 An addition to the same features in the instructions pop-up I have used:
 - JavaScript .Date() Objects and setInterval() to display a countdown
 - navigator.clipboard.writeText() and setTimeout() to copy text to clipbard and display confirmation. 
+
+---
 
 Hosted on Github Pages **Soon to be linked**
 
