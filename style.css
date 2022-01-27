@@ -39,7 +39,7 @@ button:hover {
   cursor: pointer;
 }
 
-/**/
+/* Styling for pop-up messages (how to & stats)*/
 
 .instructions,
 .statistics {
@@ -55,12 +55,13 @@ button:hover {
   border-radius: 20px;
 }
 
-/* Styling for the instructions pop-up message*/
 .header {
   display: flex;
   margin-left: 8.5em;
   justify-content: space-between;
 }
+
+/* Styling for the instructions pop-up message*/
 
 .border {
   border-top: 2px solid var(--slategrey);
@@ -98,11 +99,41 @@ button:hover {
 .statistics .stats-container {
   display: flex;
   text-align: center;
+  padding: 2em 0;
+  justify-content: center;
+}
+.column {
+  width: 4em;
+}
+.column > * {
+  margin: 0;
+}
+.column .sml {
+  font-size: 12px;
+}
+.data {
+  font-size: 2.5em;
+  padding-bottom: 0.2em;
 }
 
 .countdown {
   font-size: 2.5em;
   letter-spacing: 4px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 2em;
+}
+
+.share {
+  background: var(--green);
+  opacity: 100;
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 
 /*Clases to target in JS for element visibility*/
