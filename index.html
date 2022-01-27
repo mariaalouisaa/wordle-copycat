@@ -14,7 +14,7 @@
   <body>
     <!-- Instructions pop-up -->
     <div class="instructions pop-up visible" id="instructions">
-      <div class="header">
+      <div class="header flex">
         <h1>HOW TO PLAY</h1>
         <button onclick="exitInstructions()" aria-label="exit instructions">
           <i class="fas fa-times"></i>
@@ -30,7 +30,7 @@
         your guess was to the word.
       </p>
       <p class="border"><b>Examples</b></p>
-      <div class="word-container">
+      <div class="word-container flex">
         <div class="letter green">C</div>
         <div class="letter">O</div>
         <div class="letter">D</div>
@@ -38,7 +38,7 @@
         <div class="letter">R</div>
       </div>
       <p>The letter <b>C</b> is in the word and in the correct spot.</p>
-      <div class="word-container">
+      <div class="word-container flex">
         <div class="letter">H</div>
         <div class="letter">A</div>
         <div class="letter">C</div>
@@ -46,7 +46,7 @@
         <div class="letter">S</div>
       </div>
       <p>The letter <b>K</b> is in the word but in the wrong spot.</p>
-      <div class="word-container">
+      <div class="word-container flex">
         <div class="letter">L</div>
         <div class="letter">O</div>
         <div class="letter grey">G</div>
@@ -58,13 +58,13 @@
     </div>
     <!-- Instructions pop-up -->
     <div class="statistics pop-up hidden" id="statistics">
-      <div class="header">
+      <div class="header flex">
         <h1>STATISTICS</h1>
         <button onclick="exitStatistics()" aria-label="exit statistics">
           <i class="fas fa-times"></i>
         </button>
       </div>
-      <div class="stats-container">
+      <div class="stats-container flex">
         <div class="column">
           <p class="data">0</p>
           <p class="sml">Played</p>
@@ -82,7 +82,7 @@
           <p class="sml">Max Streak</p>
         </div>
       </div>
-      <div class="footer-container">
+      <div class="footer-container flex">
         <div class="countdown-container">
           <p><b>NEXT WORDLE</b></p>
           <div id="coundown" class="countdown">00:00:00</div>
