@@ -54,9 +54,7 @@ function showStats() {
 //Function to share stats
 let gameNumber = 223;
 let completedIn = 3;
-let solution = `⬛⬛🟨⬛⬛
-⬛🟨🟨🟨⬛
-🟩🟩🟩🟩🟩`;
+let solution = `\n⬛⬛🟨⬛⬛ \n⬛🟨🟨🟨⬛ \n🟩🟩🟩🟩🟩`;
 
 function shareStats() {
   const personalStats = `Wordle ${gameNumber} ${completedIn}/6 ${solution}`;
@@ -64,6 +62,6 @@ function shareStats() {
     confirm.classList.add("visible");
     setTimeout(function () {
       confirm.classList.remove("visible");
-    }, 1500);
+    }, 1200);
   });
 }

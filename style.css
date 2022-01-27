@@ -2,7 +2,6 @@
 :root {
   --darkgrey: #1a1a1b;
   --slategrey: #3a3a3c;
-  --grey: #86888a;
   --lightgrey: #787c7e;
   --green: #538d4e;
   --yellow: #b59f3b;
@@ -39,6 +38,9 @@ button:hover {
   cursor: pointer;
 }
 
+.flex {
+  display: flex;
+}
 /* Styling for pop-up messages (how to & stats)*/
 
 .pop-up {
@@ -55,20 +57,14 @@ button:hover {
 }
 
 .header {
-  display: flex;
   margin-left: 8.5em;
   justify-content: space-between;
 }
 
 /* Styling for the instructions pop-up message*/
-
 .border {
   border-top: 2px solid var(--slategrey);
   padding-top: 0.5em;
-}
-
-.instructions .word-container {
-  display: flex;
 }
 
 .instructions .letter {
@@ -92,12 +88,10 @@ button:hover {
 }
 
 /* Styling for the statitstics pop-up message */
-.statistics {
+.statistics * {
   text-align: center;
 }
 .statistics .stats-container {
-  display: flex;
-  text-align: center;
   padding: 2em 0;
   justify-content: center;
 }
@@ -121,8 +115,6 @@ button:hover {
 }
 
 .footer-container {
-  display: flex;
-  flex-wrap: wrap;
   padding-bottom: 2em;
   align-items: center;
   justify-content: center;
@@ -135,11 +127,14 @@ button:hover {
 }
 .share {
   background: var(--green);
-  opacity: 100;
   padding: 0.8em 1.2em;
   border-radius: 10px;
   font-weight: 600;
   letter-spacing: 2px;
+  opacity: 100;
+}
+.share:hover {
+  opacity: 0.7;
 }
 
 /* Styling for clipboard confirmation */
@@ -152,7 +147,6 @@ button:hover {
 }
 
 /*Clases to target in JS for element visibility*/
-
 .hidden {
   visibility: hidden;
   opacity: 0;
