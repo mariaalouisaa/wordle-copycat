@@ -16,7 +16,10 @@
     <div class="instructions pop-up visible" id="instructions">
       <div class="header flex">
         <h1>HOW TO PLAY</h1>
-        <button onclick="exitInstructions()" aria-label="exit instructions">
+        <button
+          onclick="exitDisplay(instructions)"
+          aria-label="exit instructions"
+        >
           <i class="fas fa-times"></i>
         </button>
       </div>
@@ -60,7 +63,7 @@
     <div class="statistics pop-up hidden" id="statistics">
       <div class="header flex">
         <h1>STATISTICS</h1>
-        <button onclick="exitStatistics()" aria-label="exit statistics">
+        <button onclick="exitDisplay(stats)" aria-label="exit statistics">
           <i class="fas fa-times"></i>
         </button>
       </div>
@@ -100,7 +103,7 @@
     </div>
     <!-- Header -->
     <header>
-      <button aria-label="help" onclick="showInstrustions()">
+      <button aria-label="help" onclick="showInstructions()">
         <i class="far fa-question-circle"></i>
       </button>
       <button aria-label="statistics" onclick="showStats()">

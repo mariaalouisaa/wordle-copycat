@@ -2,23 +2,7 @@ const instructions = document.getElementById("instructions");
 const stats = document.getElementById("statistics");
 const confirm = document.getElementById("confirm-msg");
 
-//Functions for instructions visibility
-
-function exitInstructions() {
-  instructions.classList.remove("visible");
-  instructions.classList.add("hidden");
-}
-
-function showInstrustions() {
-  if (stats.classList.contains("visible")) {
-    stats.classList.remove("visible");
-    stats.classList.add("hidden");
-  }
-  instructions.classList.remove("hidden");
-  instructions.classList.add("visible");
-}
-
-//Function for Next Wordle countdown (on stats)
+//Function for "Next Wordle" countdown (on stats pop-up)
 const time = document.getElementById("coundown");
 
 function getTime() {
@@ -34,11 +18,18 @@ function getTime() {
   time.innerHTML = `${hours}:${mins}:${secs}`;
 }
 
-//Function for statistics visability
+//Functions for pop-up visability
+function exitDisplay(props) {
+  props.classList.remove("visible");
+  props.classList.add("hidden");
+}
 
-function exitStatistics() {
-  stats.classList.remove("visible");
-  stats.classList.add("hidden");
+function showInstructions() {
+  if (stats.classList.contains("visible")) {
+    stats.classList.remove("visible");
+    stats.classList.add("hidden");
+  }
+  instructions.classList.add("visible");
 }
 
 function showStats() {
@@ -46,7 +37,6 @@ function showStats() {
     instructions.classList.remove("visible");
     instructions.classList.add("hidden");
   }
-  stats.classList.remove("hidden");
   stats.classList.add("visible");
   getTime();
 }
