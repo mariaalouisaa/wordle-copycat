@@ -19,6 +19,6 @@ An addition to the same features in the instructions pop-up I have used:
 
 ---
 
-Hosted on Github Pages **Soon to be linked**
+⭐ Hosted on [Github Pages](https://mariaalouisaa.github.io/wordle-copycat/)
 
 Coded and maintained entirely my myself. Design a mimic of [Wordle](https://www.powerlanguage.co.uk/wordle/)
