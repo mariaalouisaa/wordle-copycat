@@ -41,8 +41,14 @@ function showStats() {
   getTime();
 }
 
+//Function to calculate game no.
+const startDate = new Date("01/29/2021");
+const today = new Date();
+const oneDay = 1000 * 60 * 60 * 24;
+const diffInTime = today.getTime() - startDate.getTime();
+const gameNumber = Math.round(diffInTime / oneDay);
+
 //Function to share stats
-let gameNumber = 223;
 let completedIn = 3;
 let solution = `\n⬛⬛🟨⬛⬛ \n⬛🟨🟨🟨⬛ \n🟩🟩🟩🟩🟩`;
 
