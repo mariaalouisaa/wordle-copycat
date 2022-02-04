@@ -18,7 +18,7 @@ function getTime() {
   time.innerHTML = `${hours}:${mins}:${secs}`;
 }
 
-//Functions for pop-up visability
+//Functions for pop-up visability (instructions, stats and copied to clipboard)
 function exitDisplay(props) {
   props.classList.remove("visible");
   props.classList.add("hidden");
@@ -41,14 +41,14 @@ function showStats() {
   getTime();
 }
 
-//Function to calculate game no.
+//Function to calculate game no. (game number increases by one each day)
 const startDate = new Date("01/29/2021");
-const today = new Date();
-const oneDay = 1000 * 60 * 60 * 24;
+let today = new Date();
+const oneDay = 1000 * 60 * 60 * 24; //in milliseconds
 const diffInTime = today.getTime() - startDate.getTime();
 const gameNumber = Math.round(diffInTime / oneDay);
 
-//Function to share stats
+//Function on button to share stats
 let completedIn = 3;
 let solution = `\n⬛⬛🟨⬛⬛ \n⬛🟨🟨🟨⬛ \n🟩🟩🟩🟩🟩`;
 
