@@ -1,6 +1,6 @@
 # wordle-copycat
 
-Take home challenge for [Limio](https://github.com/innovate42), inspired by the lastest craze: [Wordle](https://www.powerlanguage.co.uk/wordle/)!
+Take home challenge for [Limio](limio.com), inspired by the lastest craze: [Wordle](https://www.powerlanguage.co.uk/wordle/)!
 
 The task given is to complete an issue in this repo, which I have created based one what the user stories would be for Wordle.
 
