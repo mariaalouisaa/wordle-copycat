@@ -92,7 +92,7 @@ button:hover {
   text-align: center;
 }
 .statistics .stats-container {
-  padding: 2em 0;
+  padding: 1em 0;
   justify-content: center;
 }
 .column {
@@ -107,6 +107,19 @@ button:hover {
 .data {
   font-size: 2.5em;
   padding-bottom: 0.2em;
+}
+
+progress {
+  -webkit-appearance: none;
+}
+
+::-webkit-progress-bar {
+  background-color: var(--darkgrey);
+  width: 18em;
+}
+
+::-webkit-progress-value {
+  background-color: var(--lightgrey);
 }
 
 .countdown {
