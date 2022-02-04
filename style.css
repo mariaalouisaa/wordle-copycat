@@ -110,7 +110,10 @@ button:hover {
 }
 
 progress {
+  appearance: none;
   -webkit-appearance: none;
+  background-color: var(--darkgrey);
+  border: none;
 }
 
 ::-webkit-progress-bar {
