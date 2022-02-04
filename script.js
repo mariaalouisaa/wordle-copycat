@@ -41,6 +41,37 @@ function showStats() {
   getTime();
 }
 
+//Function to calculate & display guess distribution
+const progressBars = document.querySelectorAll("progress");
+const barsArr = Array.from(progressBars);
+
+let guesses = {
+  played: 15,
+  one: 0,
+  two: 1,
+  three: 6,
+  four: 4,
+  five: 2,
+  six: 2,
+};
+
+guesses.one === 0
+  ? (barsArr[0].value = 1)
+  : (barsArr[0].value = (guesses.one / guesses.played) * 100);
+guesses.two === 0
+  ? (barsArr[1].value = 1)
+  : (barsArr[1].value = (guesses.two / guesses.played) * 100);
+guesses.three === 0
+  ? (barsArr[2].value = 1)
+  : (barsArr[2].value = (guesses.three / guesses.played) * 100);
+guesses.four === 0
+  ? (barsArr[3].value = 1)
+  : (barsArr[3].value = (guesses.four / guesses.played) * 100);
+guesses.five === 0
+  ? (barsArr[4].value = 1)
+  : (barsArr[4].value = (guesses.five / guesses.played) * 100);
+barsArr[5].value = 10;
+
 //Function to calculate game no. (game number increases by one each day)
 const startDate = new Date("01/29/2021");
 let today = new Date();
