@@ -14,9 +14,10 @@ I have used:
 - onClick functions & DOM manipulation
 
 I have also decided to tackle Issue #6 to create the statistics pop-up. This element too can be opened and closed.
-An addition to the same features in the instructions pop-up I have used:
+An addition to the same features in the instructions pop-up I also have used:
 - JavaScript .Date() Objects and setInterval() to display a countdown
-- navigator.clipboard.writeText() and setTimeout() to copy text to clipbard and display confirmation. 
+- navigator.clipboard.writeText() and setTimeout() to copy text to clipbard and display confirmation
+- Progress bars to display the percentage of wins
 
 ---
 
