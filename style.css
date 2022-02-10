@@ -54,6 +54,21 @@ button:hover {
   cursor: pointer;
 }
 
+/* Styling for keyboard */
+.keyboard {
+  text-align: center;
+}
+.keyboard > div {
+  margin: 5px;
+}
+.keyboard button {
+  color: var(--darkgrey);
+  font-weight: 600;
+  background: var(--lightgrey);
+  min-width: 2em;
+  height: 2.5em;
+}
+
 /* Styling for pop-up messages (how to & stats)*/
 
 .pop-up {
