@@ -16,7 +16,7 @@ body {
   padding: 1em;
 }
 
-h1 {
+h2 {
   font-size: 1em;
   letter-spacing: 2px;
 }
@@ -26,11 +26,27 @@ p {
   letter-spacing: 0.5px;
 }
 
+.flex {
+  display: flex;
+}
+
+/* Styling for header */
+header {
+  border-bottom: 2px solid var(--slategrey);
+}
+
+h1 {
+  margin: 0.2em;
+}
+header .flex {
+  justify-content: space-between;
+}
+
 button {
   background: none;
   border: none;
   color: var(--white);
-  font-size: 20px;
+  font-size: 1.5em;
   opacity: 0.5;
 }
 
@@ -38,9 +54,6 @@ button:hover {
   cursor: pointer;
 }
 
-.flex {
-  display: flex;
-}
 /* Styling for pop-up messages (how to & stats)*/
 
 .pop-up {
