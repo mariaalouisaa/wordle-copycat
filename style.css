@@ -13,7 +13,6 @@ body {
   font-family: sans-serif;
   color: var(--white);
   background: var(--darkgrey);
-  padding: 1em;
 }
 
 h2 {
@@ -33,6 +32,7 @@ p {
 /* Styling for header */
 header {
   border-bottom: 2px solid var(--slategrey);
+  margin-bottom: 1em;
 }
 
 h1 {
@@ -54,9 +54,24 @@ button:hover {
   cursor: pointer;
 }
 
+/* Styling for grid */
+.grid {
+  display: grid;
+  grid-template-columns: 3.2em 3.2em 3.2em 3.2em 3.2em;
+  gap: 5px;
+  grid-template-rows: repeat (6, 1em);
+  justify-content: center;
+}
+
+.cell {
+  border: 2px solid var(--lightgrey);
+  height: 3.2em;
+  margin: 0;
+}
 /* Styling for keyboard */
 .keyboard {
   text-align: center;
+  margin-top: 1em;
 }
 .keyboard > div {
   margin: 5px;
@@ -65,8 +80,8 @@ button:hover {
   color: var(--darkgrey);
   font-weight: 600;
   background: var(--lightgrey);
-  min-width: 2em;
-  height: 2.5em;
+  min-width: 1.8em;
+  height: 2.2em;
 }
 
 /* Styling for pop-up messages (how to & stats)*/
