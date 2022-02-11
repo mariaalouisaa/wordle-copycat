@@ -1,7 +1,29 @@
 const instructions = document.getElementById("instructions");
 const stats = document.getElementById("statistics");
 const confirm = document.getElementById("confirm-msg");
+const cells = Array.from(document.querySelectorAll(".cell"));
+let currentCell = 0;
+let rowCount = 1;
 
+//Function for GamePlay
+let dailyWord = ["c", "o", "d", "e", "r"];
+let typedWord = [];
+
+document.addEventListener("keypress", (event) => {
+  let key = event.key;
+  if (/[a-z]/.test(key)) {
+    cells[currentCell].innerHTML = key;
+    typedWord.push(key);
+    currentCell++;
+  }
+  if (currentCell % 5 === 0) wordCheck();
+});
+
+function wordCheck() {
+  dailyWord.forEach((letter, index) => {
+    console.log(letter[index] === typedWord[index]);
+  });
+}
 //Function for "Next Wordle" countdown (on stats pop-up)
 const time = document.getElementById("coundown");
 
