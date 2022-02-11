@@ -2,6 +2,7 @@ const instructions = document.getElementById("instructions");
 const stats = document.getElementById("statistics");
 const confirm = document.getElementById("confirm-msg");
 const cells = Array.from(document.querySelectorAll(".cell"));
+const boardkeys = Array.from(document.querySelectorAll(".keyboard button"));
 let currentCell = 0;
 let rowCount = 1;
 
@@ -12,12 +13,21 @@ let typedWord = [];
 document.addEventListener("keypress", (event) => {
   let key = event.key;
   if (/^[a-z]$/.test(key)) {
-    cells[currentCell].innerHTML = key;
+    cells[currentCell].innerHTML = key.toUpperCase();
     typedWord.push(key);
     currentCell++;
   }
   if (key === "Enter") wordCheck();
 });
+
+function gamePlay(event) {
+  if (/^[a-z]$/.test(event.target.value)) {
+    cells[currentCell].innerHTML = event.target.value.toUpperCase();
+    typedWord.push(event.target.value);
+    currentCell++;
+  }
+  if (event.target.value === "enter") wordCheck();
+}
 
 function wordCheck() {
   if (typedWord.length < 5) {
@@ -36,9 +46,10 @@ function wordCheck() {
     });
     typedWord = [];
     rowCount++;
-    console.log(rowCount);
   }
 }
+
+boardkeys.forEach((key) => key.addEventListener("click", gamePlay));
 
 //Function for "Next Wordle" countdown (on stats pop-up)
 const time = document.getElementById("coundown");

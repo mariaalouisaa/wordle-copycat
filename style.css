@@ -67,10 +67,11 @@ button:hover {
 .cell {
   border: 2px solid var(--lightgrey);
   margin: 0;
-  font-size: 2.5em;
-  padding-bottom: 5px;
+  font-size: 2.2em;
+  padding: 2px 0 8px 0;
   text-align: center;
   height: 1em;
+  font-weight: 600;
 }
 /* Styling for keyboard */
 .keyboard {
