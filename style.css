@@ -58,15 +58,18 @@ button:hover {
 .grid {
   display: grid;
   grid-template-columns: 3.2em 3.2em 3.2em 3.2em 3.2em;
-  gap: 5px;
+  gap: 7px;
   grid-template-rows: repeat (6, 1em);
   justify-content: center;
 }
 
 .cell {
   border: 2px solid var(--lightgrey);
-  height: 3.2em;
   margin: 0;
+  font-size: 2.5em;
+  padding-bottom: 5px;
+  text-align: center;
+  height: 1em;
 }
 /* Styling for keyboard */
 .keyboard {
