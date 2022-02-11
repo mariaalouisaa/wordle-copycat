@@ -11,19 +11,35 @@ let typedWord = [];
 
 document.addEventListener("keypress", (event) => {
   let key = event.key;
-  if (/[a-z]/.test(key)) {
+  if (/^[a-z]$/.test(key)) {
     cells[currentCell].innerHTML = key;
     typedWord.push(key);
     currentCell++;
   }
-  if (currentCell % 5 === 0) wordCheck();
+  if (key === "Enter") wordCheck();
 });
 
 function wordCheck() {
-  dailyWord.forEach((letter, index) => {
-    console.log(letter[index] === typedWord[index]);
-  });
+  if (typedWord.length < 5) {
+    console.log("word too short");
+    //error message pop up to alert user
+  }
+  if ((typedWord.length = 5)) {
+    //remove if statement once game only allows 5 word input
+    typedWord.forEach((letter, index) => {
+      let box = document.querySelector(`.row${rowCount}-${index + 1}`);
+      if (letter === dailyWord[index]) {
+        box.style.background = "var(--green)";
+      } else if (dailyWord.includes(letter)) {
+        box.style.background = "var(--yellow)";
+      } else box.style.background = "var(--slategrey)";
+    });
+    typedWord = [];
+    rowCount++;
+    console.log(rowCount);
+  }
 }
+
 //Function for "Next Wordle" countdown (on stats pop-up)
 const time = document.getElementById("coundown");
 
