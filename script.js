@@ -3,9 +3,11 @@ const stats = document.getElementById("statistics");
 const confirm = document.getElementById("confirm-msg");
 const settings = document.getElementById("settings");
 const cells = Array.from(document.querySelectorAll(".cell"));
+const sun = document.querySelector(".sun");
 const boardkeys = Array.from(document.querySelectorAll(".keyboard button"));
 let currentCell = 0;
 let rowCount = 1;
+let night = true;
 
 //Function for GamePlay
 let dailyWord = ["c", "o", "d", "e", "r"];
@@ -158,9 +160,12 @@ function showStats() {
 // Function for Night Mode toggle
 
 function nightToggle() {
-  console.log("night");
+  night ? (night = false) : (night = true);
   document.querySelector("body").classList.toggle("lightmode");
   document.querySelector(".but-one").classList.toggle("lightbutton");
   document.querySelector(".but-two").classList.toggle("lightbutton");
-  document.querySelector(".sun").classList.toggle("lightbutton");
+  sun.classList.toggle("lightbutton");
+  night
+    ? (sun.innerHTML = `<i class="fas fa-sun"></i>`)
+    : (sun.innerHTML = '<i class="fas fa-moon"></i>');
 }
