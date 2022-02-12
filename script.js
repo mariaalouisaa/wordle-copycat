@@ -32,7 +32,11 @@ function gamePlay(event) {
 function wordCheck() {
   console.log(typedWord);
   if (typedWord.length < 5) {
-    console.log("word too short");
+    let shortWord = document.getElementById("short-word");
+    shortWord.classList.add("visible");
+    setTimeout(function () {
+      shortWord.classList.remove("visible");
+    }, 1200);
     return null;
     //error message pop up to alert user
   }

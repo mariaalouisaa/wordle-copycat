@@ -202,7 +202,8 @@ progress {
 }
 
 /* Styling for clipboard confirmation */
-.confirm-msg {
+.confirm-msg,
+.short-word {
   background: var(--white);
   color: var(--darkgrey);
   width: 12em;
