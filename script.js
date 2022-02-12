@@ -10,18 +10,19 @@ let rowCount = 1;
 let dailyWord = ["c", "o", "d", "e", "r"];
 let typedWord = [];
 
-document.addEventListener("keypress", (event) => {
+document.addEventListener("keydown", (event) => {
   let key = event.key;
-  if (/^[a-z]$/.test(key)) {
+  if (/^[a-z]$/.test(key) && typedWord.length <= 4) {
     cells[currentCell].innerHTML = key.toUpperCase();
     typedWord.push(key);
     currentCell++;
   }
   if (key === "Enter") wordCheck();
+  if (key === "Backspace") deleteLetter();
 });
 
 function gamePlay(event) {
-  if (/^[a-z]$/.test(event.target.value)) {
+  if (/^[a-z]$/.test(event.target.value) && typedWord.length <= 4) {
     cells[currentCell].innerHTML = event.target.value.toUpperCase();
     typedWord.push(event.target.value);
     currentCell++;
@@ -31,21 +32,30 @@ function gamePlay(event) {
 
 function wordCheck() {
   if (typedWord.length < 5) {
-    console.log("word too short");
-    //error message pop up to alert user
+    let shortWord = document.getElementById("short-word");
+    shortWord.classList.add("visible");
+    setTimeout(function () {
+      shortWord.classList.remove("visible");
+    }, 1200);
+    return null;
   }
-  if ((typedWord.length = 5)) {
-    //remove if statement once game only allows 5 word input
-    typedWord.forEach((letter, index) => {
-      let box = document.querySelector(`.row${rowCount}-${index + 1}`);
-      if (letter === dailyWord[index]) {
-        box.style.background = "var(--green)";
-      } else if (dailyWord.includes(letter)) {
-        box.style.background = "var(--yellow)";
-      } else box.style.background = "var(--slategrey)";
-    });
-    typedWord = [];
-    rowCount++;
+  typedWord.forEach((letter, index) => {
+    let box = document.querySelector(`.row${rowCount}-${index + 1}`);
+    if (letter === dailyWord[index]) {
+      box.style.background = "var(--green)";
+    } else if (dailyWord.includes(letter)) {
+      box.style.background = "var(--yellow)";
+    } else box.style.background = "var(--slategrey)";
+  });
+  typedWord = [];
+  rowCount++;
+}
+
+function deleteLetter() {
+  if (!cells[currentCell - 1].style.background) {
+    currentCell--;
+    cells[currentCell].innerHTML = "";
+    typedWord.pop();
   }
 }
 
