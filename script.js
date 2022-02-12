@@ -28,6 +28,7 @@ function gamePlay(event) {
     currentCell++;
   }
   if (event.target.value === "enter") wordCheck();
+  if (event.target.value === "delete") deleteLetter();
 }
 
 function wordCheck() {
