@@ -15,16 +15,26 @@
     <!-- Header -->
     <header>
       <div class="flex">
-        <button aria-label="help" onclick="showInstructions()">
-          <i class="far fa-question-circle"></i>
-        </button>
-        <h1>WORD-IT</h1>
         <div class="buttons">
-          <button><i class="fas fa-cog"></i></button>
-          <button aria-label="statistics" onclick="showStats()">
+          <button
+            class="but-one"
+            aria-label="help"
+            onclick="showInstructions()"
+          >
+            <i class="far fa-question-circle"></i>
+          </button>
+          <button class="but-two" aria-label="statistics" onclick="showStats()">
             <i class="fas fa-chart-line"></i>
           </button>
         </div>
+        <h1>WORD-IT</h1>
+        <button
+          class="sun"
+          aria-label="toggle night mode"
+          onclick="nightToggle()"
+        >
+          <i class="fas fa-sun"></i>
+        </button>
       </div>
     </header>
     <!-- Game Board/GRID -->
@@ -94,7 +104,7 @@
         <button value="b">B</button>
         <button value="n">N</button>
         <button value="m">M</button>
-        <button class="action-key">DELETE</button>
+        <button class="action-key" value="delete">DELETE</button>
       </div>
     </div>
 
@@ -149,7 +159,7 @@
     <div class="statistics pop-up hidden" id="statistics">
       <div class="header flex">
         <h2>STATISTICS</h2>
-        <button onclick="exitDisplay(stats)" aria-label="exit statistics">
+        <button onclick="exitDisplay(settings)" aria-label="exit settings">
           <i class="fas fa-times"></i>
         </button>
       </div>

@@ -13,6 +13,8 @@ body {
   font-family: sans-serif;
   color: var(--white);
   background: var(--darkgrey);
+  max-width: 40em;
+  margin: 0 auto;
 }
 
 h2 {
@@ -33,6 +35,7 @@ p {
 header {
   border-bottom: 2px solid var(--slategrey);
   margin-bottom: 1em;
+  padding-top: 1em;
 }
 
 h1 {
@@ -55,6 +58,10 @@ button:hover {
   cursor: pointer;
 }
 
+.sun {
+  padding-left: 2em;
+}
+
 /* Styling for grid */
 .grid {
   display: grid;
@@ -65,7 +72,7 @@ button:hover {
 }
 
 .cell {
-  border: 2px solid var(--lightgrey);
+  border: 2px solid var(--slategrey);
   margin: 0;
   font-size: 2.2em;
   padding: 2px 0 8px 0;
@@ -87,6 +94,7 @@ button:hover {
   background: var(--lightgrey);
   min-width: 1.8em;
   height: 2.2em;
+  opacity: 0.9;
 }
 
 /* Styling for pop-up messages (how to & stats)*/
@@ -211,7 +219,7 @@ progress {
   font-weight: 800;
 }
 
-/*Clases to target in JS for element visibility*/
+/*Classes to target in JS for element visibility*/
 .hidden {
   visibility: hidden;
   opacity: 0;
@@ -222,4 +230,14 @@ progress {
   visibility: visible;
   opacity: 1;
   transition: visibility 0s linear 0s, opacity 400ms;
+}
+
+/* Classes to target for nightmode toggle */
+.lightmode {
+  background: var(--white);
+  color: var(--darkgrey);
+}
+
+.lightbutton {
+  color: var(--darkgrey);
 }
