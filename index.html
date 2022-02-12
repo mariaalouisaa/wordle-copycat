@@ -20,7 +20,7 @@
         </button>
         <h1>WORD-IT</h1>
         <div class="buttons">
-          <button><i class="fas fa-cog"></i></button>
+          <button aria-label="settings" onclick="showSettings()"><i class="fas fa-cog"></i></button>
           <button aria-label="statistics" onclick="showStats()">
             <i class="fas fa-chart-line"></i>
           </button>
@@ -149,7 +149,7 @@
     <div class="statistics pop-up hidden" id="statistics">
       <div class="header flex">
         <h2>STATISTICS</h2>
-        <button onclick="exitDisplay(stats)" aria-label="exit statistics">
+        <button onclick="exitDisplay(settings)" aria-label="exit settings">
           <i class="fas fa-times"></i>
         </button>
       </div>
@@ -196,6 +196,14 @@
             SHARE <i class="fas fa-share-alt"></i>
           </button>
         </div>
+      </div>
+    </div>
+    <!-- Settings pop-up -->
+    <div class="settings pop-up hidden" id="settings">
+      <div class="header flex">
+                <h2>SETTINGS</h2>
+        <button onclick="exitDisplay(settings)" aria-label="exit statistics">
+          <i class="fas fa-times"></i>
       </div>
     </div>
     <!-- Clipboard confirmation -->
