@@ -10,7 +10,7 @@ let rowCount = 1;
 let dailyWord = ["c", "o", "d", "e", "r"];
 let typedWord = [];
 
-document.addEventListener("keypress", (event) => {
+document.addEventListener("keydown", (event) => {
   let key = event.key;
   if (/^[a-z]$/.test(key) && typedWord.length <= 4) {
     cells[currentCell].innerHTML = key.toUpperCase();
@@ -18,6 +18,7 @@ document.addEventListener("keypress", (event) => {
     currentCell++;
   }
   if (key === "Enter") wordCheck();
+  if (key === "Backspace") deleteLetter();
 });
 
 function gamePlay(event) {
@@ -30,7 +31,6 @@ function gamePlay(event) {
 }
 
 function wordCheck() {
-  console.log(typedWord);
   if (typedWord.length < 5) {
     let shortWord = document.getElementById("short-word");
     shortWord.classList.add("visible");
@@ -38,20 +38,24 @@ function wordCheck() {
       shortWord.classList.remove("visible");
     }, 1200);
     return null;
-    //error message pop up to alert user
   }
-  if (typedWord.length === 5) {
-    //remove if statement once game only allows 5 word input
-    typedWord.forEach((letter, index) => {
-      let box = document.querySelector(`.row${rowCount}-${index + 1}`);
-      if (letter === dailyWord[index]) {
-        box.style.background = "var(--green)";
-      } else if (dailyWord.includes(letter)) {
-        box.style.background = "var(--yellow)";
-      } else box.style.background = "var(--slategrey)";
-    });
-    typedWord = [];
-    rowCount++;
+  typedWord.forEach((letter, index) => {
+    let box = document.querySelector(`.row${rowCount}-${index + 1}`);
+    if (letter === dailyWord[index]) {
+      box.style.background = "var(--green)";
+    } else if (dailyWord.includes(letter)) {
+      box.style.background = "var(--yellow)";
+    } else box.style.background = "var(--slategrey)";
+  });
+  typedWord = [];
+  rowCount++;
+}
+
+function deleteLetter() {
+  if (!cells[currentCell - 1].style.background) {
+    currentCell--;
+    cells[currentCell].innerHTML = "";
+    typedWord.pop();
   }
 }
 
