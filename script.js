@@ -90,34 +90,14 @@ function showInstructions() {
     stats.classList.remove("visible");
     stats.classList.add("hidden");
   }
-  if (settings.classList.contains("visible")) {
-    settings.classList.remove("visible");
-    settings.classList.add("hidden");
-  }
 
   instructions.classList.add("visible");
-}
-
-function showSettings() {
-  if (stats.classList.contains("visible")) {
-    stats.classList.remove("visible");
-    stats.classList.add("hidden");
-  }
-  if (instructions.classList.contains("visible")) {
-    instructions.classList.remove("visible");
-    instructions.classList.add("hidden");
-  }
-  settings.classList.add("visible");
 }
 
 function showStats() {
   if (instructions.classList.contains("visible")) {
     instructions.classList.remove("visible");
     instructions.classList.add("hidden");
-  }
-  if (settings.classList.contains("visible")) {
-    settings.classList.remove("visible");
-    settings.classList.add("hidden");
   }
   stats.classList.add("visible");
   getTime();
