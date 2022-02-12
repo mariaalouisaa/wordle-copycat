@@ -15,18 +15,26 @@
     <!-- Header -->
     <header>
       <div class="flex">
-        <button aria-label="help" onclick="showInstructions()">
-          <i class="far fa-question-circle"></i>
-        </button>
-        <h1>WORD-IT</h1>
         <div class="buttons">
-          <button aria-label="toggle night mode" onclick="NightMode()">
-            <i class="fas fa-cog"></i>
+          <button
+            class="but-one"
+            aria-label="help"
+            onclick="showInstructions()"
+          >
+            <i class="far fa-question-circle"></i>
           </button>
-          <button aria-label="statistics" onclick="showStats()">
+          <button class="but-two" aria-label="statistics" onclick="showStats()">
             <i class="fas fa-chart-line"></i>
           </button>
         </div>
+        <h1>WORD-IT</h1>
+        <button
+          class="sun"
+          aria-label="toggle night mode"
+          onclick="nightToggle()"
+        >
+          <i class="fas fa-sun"></i>
+        </button>
       </div>
     </header>
     <!-- Game Board/GRID -->

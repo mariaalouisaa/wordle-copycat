@@ -47,7 +47,7 @@ function wordCheck() {
       box.style.background = "var(--green)";
     } else if (dailyWord.includes(letter)) {
       box.style.background = "var(--yellow)";
-    } else box.style.background = "var(--slategrey)";
+    } else box.style.background = "var(--lightgrey)";
   });
   typedWord = [];
   rowCount++;
@@ -77,30 +77,6 @@ function getTime() {
   if (secs < 10) secs = "0" + secs;
 
   time.innerHTML = `${hours}:${mins}:${secs}`;
-}
-
-//Functions for pop-up visability (instructions, stats and copied to clipboard)
-function exitDisplay(props) {
-  props.classList.remove("visible");
-  props.classList.add("hidden");
-}
-
-function showInstructions() {
-  if (stats.classList.contains("visible")) {
-    stats.classList.remove("visible");
-    stats.classList.add("hidden");
-  }
-
-  instructions.classList.add("visible");
-}
-
-function showStats() {
-  if (instructions.classList.contains("visible")) {
-    instructions.classList.remove("visible");
-    instructions.classList.add("hidden");
-  }
-  stats.classList.add("visible");
-  getTime();
 }
 
 //Function to calculate & display guess distribution
@@ -153,4 +129,38 @@ function shareStats() {
       confirm.classList.remove("visible");
     }, 1200);
   });
+}
+
+//Functions for pop-up visability (instructions, stats and copied to clipboard)
+function exitDisplay(props) {
+  props.classList.remove("visible");
+  props.classList.add("hidden");
+}
+
+function showInstructions() {
+  if (stats.classList.contains("visible")) {
+    stats.classList.remove("visible");
+    stats.classList.add("hidden");
+  }
+
+  instructions.classList.add("visible");
+}
+
+function showStats() {
+  if (instructions.classList.contains("visible")) {
+    instructions.classList.remove("visible");
+    instructions.classList.add("hidden");
+  }
+  stats.classList.add("visible");
+  getTime();
+}
+
+// Function for Night Mode toggle
+
+function nightToggle() {
+  console.log("night");
+  document.querySelector("body").classList.toggle("lightmode");
+  document.querySelector(".but-one").classList.toggle("lightbutton");
+  document.querySelector(".but-two").classList.toggle("lightbutton");
+  document.querySelector(".sun").classList.toggle("lightbutton");
 }
