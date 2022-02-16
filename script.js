@@ -3,6 +3,8 @@ const stats = document.getElementById("statistics");
 const confirm = document.getElementById("confirm-msg");
 const settings = document.getElementById("settings");
 const cells = Array.from(document.querySelectorAll(".cell"));
+const played = document.getElementById("played");
+const win = document.getElementById("winData");
 const sun = document.querySelector(".sun");
 const boardkeys = Array.from(document.querySelectorAll(".keyboard button"));
 let currentCell = 0;
@@ -10,8 +12,8 @@ let rowCount = 1;
 let night = true;
 
 let guesses = {
-  played: 0,
-  lost: 0,
+  played: 10,
+  lost: 1,
   1: 0,
   2: 0,
   3: 0,
@@ -20,8 +22,15 @@ let guesses = {
   6: 0,
 };
 
+played.innerHTML = guesses.played;
+let winPercent = 100;
+if (guesses.played === 0) winPercent = 0;
+if (guesses.lost !== 0) winPercent = (guesses.lost / guesses.played) * 100;
+winData.innerHTML = Math.round(100 - winPercent);
+
 //Function for GamePlay
 let dailyWord = ["m", "o", "u", "s", "e"];
+document.getElementById("word").innerHTML = dailyWord.join("");
 let typedWord = [];
 
 function gamePlay(event) {
@@ -65,9 +74,21 @@ function wordCheck() {
   if (dailyWord.join("") === typedWord.join("")) winner();
   if (currentCell === 30 && dailyWord.join("") !== typedWord.join("")) {
     guesses.played = guesses.played + 1;
+    played.innerHTML = guesses.played;
     guesses.lost = guesses.lost + 1;
-    //amazing job pop up and dissapear
-    //then statistics popup and stay
+    winPercent = (guesses.lost / guesses.played) * 100;
+    winData.innerHTML = Math.round(100 - winPercent);
+    //update steak & max
+    //update progress bar
+    //save data to local storage
+    let message = document.getElementById("lose");
+    message.classList.add("visible");
+    setTimeout(function () {
+      message.classList.remove("visible");
+      setTimeout(() => {
+        showStats(), 1200;
+      });
+    }, 1200);
   }
   typedWord = [];
   rowCount++;
@@ -76,9 +97,15 @@ function wordCheck() {
 function winner() {
   guesses.played = guesses.played + 1;
   guesses[rowCount] = guesses[rowCount] + 1;
-  console.log(guesses);
-  //save data to local storage
-  //winner pop up
+  played.innerHTML = guesses.played;
+  guesses.lost === 0
+    ? (winPercent = 100)
+    : (winPercent = (guesses.lost / guesses.played) * 100);
+  winData.innerHTML = Math.round(100 - winPercent);
+  //update steak & max
+  //use rowCount to update guesses obj
+  //update progress bar
+  //save played, win, ??, to local storage
   let message = document.getElementById("win");
   message.classList.add("visible");
   setTimeout(function () {
