@@ -162,8 +162,13 @@ function showStats() {
 function nightToggle() {
   night ? (night = false) : (night = true);
   document.querySelector("body").classList.toggle("lightmode");
+  document.querySelector(".statistics").classList.toggle("lightmode");
+  document.querySelector(".instructions").classList.toggle("lightmode");
   document.querySelector(".but-one").classList.toggle("lightbutton");
   document.querySelector(".but-two").classList.toggle("lightbutton");
+  document.querySelector(".exit").classList.toggle("lightbutton");
+  document.querySelector(".exit-2").classList.toggle("lightbutton");
+
   sun.classList.toggle("lightbutton");
   night
     ? (sun.innerHTML = `<i class="fas fa-sun"></i>`)
