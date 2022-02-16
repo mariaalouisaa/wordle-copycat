@@ -1,38 +1,46 @@
 # wordle-copycat
 
-Take home challenge for [Limio](limio.com), inspired by the latest craze: [Wordle](https://www.powerlanguage.co.uk/wordle/)!
+Take home challenge, inspired by the latest craze: [Wordle](https://www.powerlanguage.co.uk/wordle/)! The task given is to create a feature of the game Wordle.
 
-The task given is to create a feature of the game Wordle.
-The issues in this repo are different user stories/features of the product to be made.
+**I have enjoyed this so much that I have contined to attempt a FULL copycat of the Wordle game.**
 
 ---
 
-I have chosen to tackle Issue #1 to create the instructions. They appear on load, on top of all other elements on the page, and can be closed and reopened.
+## User Journey
 
-I have used:
-- Semantic HTML
-- CSS variables
-- onclick functions & DOM manipulation
+1. Use your keyboard or the buttons on the screen to guess a five letter word
+2. Correct letters in the wrong place display yellow, right letter right place display green, wrong letter displays grey.
+3. Keep guessing until you get the right word! (Beware you only get 6 tries!)
+4. You can view you stats or the instructions at anytime, just click the buttons to make them pop-up.
 
-I have also decided to tackle Issue #6 to create the statistics pop-up. This element too can be opened and closed.
-An addition to the same features in the instructions pop-up I also have used:
-- JavaScript .Date() Objects and setInterval() to display a countdown
+---
+
+## Code Features 
+
+- Hidden pop-up messagaes that showcase CSS animation when changing between hidden and visible
+- Lightmode / darkmode toggle
+- Option for user to play with keyboard or buttons on the screen
+- JavaScript .Date() Objects and setInterval() to display a countdown until next game
 - navigator.clipboard.writeText() and setTimeout() to copy text to clipboard and display confirmation
 - Progress bars to display the percentage of wins
-
-*Please see issue #6 for comments on what still needs to be implemented on the statistics*
+- Responsive design
+- DOM manipulation
 
 ---
+
+## Still to come...
+
+- Stats saved to localStorage
+- WordAPI linked to generate random word daily
 
 ### Project screenshots
 
-<img width="300" alt="wordle-1" src="https://user-images.githubusercontent.com/82417131/152808451-77c9e3a4-449e-4117-b8cb-f8c1b6d9cae0.png">          <img width="300" alt="wordle-2" src="https://user-images.githubusercontent.com/82417131/152808462-f0f7023f-1187-4cea-bc82-df318843eb8d.png">          <img width="300" alt="wordle-3" src="https://user-images.githubusercontent.com/82417131/152808481-60d4eb0d-6de7-44fc-9b3b-ca659110b94e.png">
+
+<img width="400" alt="wordle" src="https://user-images.githubusercontent.com/82417131/154367233-226aa964-3186-442e-9f63-a81e55e3bfb6.png">      <img width="300" alt="wordle-1" src="https://user-images.githubusercontent.com/82417131/152808451-77c9e3a4-449e-4117-b8cb-f8c1b6d9cae0.png">          <img width="300" alt="wordle-2" src="https://user-images.githubusercontent.com/82417131/152808462-f0f7023f-1187-4cea-bc82-df318843eb8d.png">  
 
 ---
 
 
 ⭐ Hosted on [Github Pages](https://mariaalouisaa.github.io/wordle-copycat/) ⭐
-
-**I enjoyed this so much that I am planning to attempt a FULL copycat of the Wordle game.**
 
 Coded and maintained entirely my myself. Design a mimic of [Wordle](https://www.powerlanguage.co.uk/wordle/).
