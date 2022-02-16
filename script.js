@@ -36,11 +36,19 @@ function wordCheck() {
   }
   typedWord.forEach((letter, index) => {
     let box = document.querySelector(`.row${rowCount}-${index + 1}`);
+    let letterButton = document.getElementById(letter);
     if (letter === dailyWord[index]) {
       box.style.background = "var(--green)";
+      letterButton.style.background = "var(--green)";
     } else if (dailyWord.includes(letter)) {
       box.style.background = "var(--yellow)";
-    } else box.style.background = "var(--lightgrey)";
+      letterButton.style.background === "var(--green)"
+        ? null
+        : (letterButton.style.background = "var(--yellow)");
+    } else {
+      box.style.background = "var(--lightgrey)";
+      letterButton.style.opacity = "0.4";
+    }
   });
   typedWord = [];
   rowCount++;

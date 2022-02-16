@@ -95,6 +95,7 @@ button:hover {
   min-width: 1.8em;
   height: 2.2em;
   opacity: 0.9;
+  border-radius: 10px;
 }
 
 /* Styling for pop-up messages (how to & stats)*/
