@@ -3,6 +3,7 @@ const stats = document.getElementById("statistics");
 const confirm = document.getElementById("confirm-msg");
 const settings = document.getElementById("settings");
 const cells = Array.from(document.querySelectorAll(".cell"));
+const played = document.getElementById("played");
 const sun = document.querySelector(".sun");
 const boardkeys = Array.from(document.querySelectorAll(".keyboard button"));
 let currentCell = 0;
@@ -20,8 +21,11 @@ let guesses = {
   6: 0,
 };
 
+played.innerHTML = guesses.played;
+
 //Function for GamePlay
 let dailyWord = ["m", "o", "u", "s", "e"];
+document.getElementById("word").innerHTML = dailyWord.join("");
 let typedWord = [];
 
 function gamePlay(event) {
@@ -66,8 +70,19 @@ function wordCheck() {
   if (currentCell === 30 && dailyWord.join("") !== typedWord.join("")) {
     guesses.played = guesses.played + 1;
     guesses.lost = guesses.lost + 1;
-    //amazing job pop up and dissapear
-    //then statistics popup and stay
+    played.innerHTML = guesses.played;
+    //update win%
+    //update steak & max
+    //update progress bar
+    //save data to local storage
+    let message = document.getElementById("lose");
+    message.classList.add("visible");
+    setTimeout(function () {
+      message.classList.remove("visible");
+      setTimeout(() => {
+        showStats(), 1200;
+      });
+    }, 1200);
   }
   typedWord = [];
   rowCount++;
@@ -76,9 +91,11 @@ function wordCheck() {
 function winner() {
   guesses.played = guesses.played + 1;
   guesses[rowCount] = guesses[rowCount] + 1;
-  console.log(guesses);
+  played.innerHTML = guesses.played;
+  //update win%
+  //update steak & max
+  //update progress bar
   //save data to local storage
-  //winner pop up
   let message = document.getElementById("win");
   message.classList.add("visible");
   setTimeout(function () {
