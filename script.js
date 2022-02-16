@@ -13,7 +13,7 @@ let night = true;
 
 let guesses = {
   played: 10,
-  lost: 1,
+  lost: 0,
   1: 0,
   2: 0,
   3: 0,
@@ -24,9 +24,14 @@ let guesses = {
 
 played.innerHTML = guesses.played;
 let winPercent = 100;
-if (guesses.played === 0) winPercent = 0;
-if (guesses.lost !== 0) winPercent = (guesses.lost / guesses.played) * 100;
-winData.innerHTML = Math.round(100 - winPercent);
+if (guesses.played === 0) {
+  winData.innerHTML = 0;
+} else if (guesses.lost === 0) {
+  winData.innerHTML = 100;
+} else {
+  winPercent = (guesses.lost / guesses.played) * 100;
+  winData.innerHTML = Math.round(100 - winPercent);
+}
 
 //Function for GamePlay
 let dailyWord = ["m", "o", "u", "s", "e"];
@@ -98,10 +103,12 @@ function winner() {
   guesses.played = guesses.played + 1;
   guesses[rowCount] = guesses[rowCount] + 1;
   played.innerHTML = guesses.played;
-  guesses.lost === 0
-    ? (winPercent = 100)
-    : (winPercent = (guesses.lost / guesses.played) * 100);
-  winData.innerHTML = Math.round(100 - winPercent);
+  if (guesses.lost === 0) {
+    winData.innerHTML = 100;
+  } else {
+    winPercent = (guesses.lost / guesses.played) * 100;
+    winData.innerHTML = Math.round(100 - winPercent);
+  }
   //update steak & max
   //use rowCount to update guesses obj
   //update progress bar
