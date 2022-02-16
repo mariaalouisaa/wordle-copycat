@@ -14,6 +14,9 @@ let night = true;
 let guesses = {
   played: 10,
   lost: 0,
+  streak: 0,
+  "max streak": 0,
+  "last-win": 0,
   1: 0,
   2: 0,
   3: 0,
@@ -83,8 +86,9 @@ function wordCheck() {
     guesses.lost = guesses.lost + 1;
     winPercent = (guesses.lost / guesses.played) * 100;
     winData.innerHTML = Math.round(100 - winPercent);
-    //update steak & max
-    //update progress bar
+    //update steak
+    guesses.streak = 0;
+    guesses["last-win"] = 0;
     //save data to local storage
     let message = document.getElementById("lose");
     message.classList.add("visible");
@@ -109,7 +113,7 @@ function winner() {
     winPercent = (guesses.lost / guesses.played) * 100;
     winData.innerHTML = Math.round(100 - winPercent);
   }
-  //update steak & max
+  //update lastwin, steak & check max
   //use rowCount to update guesses obj
   //update progress bar
   //save played, win, ??, to local storage
