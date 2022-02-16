@@ -179,18 +179,18 @@ function getTime() {
 }
 
 //Function to calculate game no. (game number increases by one each day)
-const startDate = new Date("01/29/2021");
+const startDate = new Date("01/25/2022");
 let today = new Date();
 const oneDay = 1000 * 60 * 60 * 24; //in milliseconds
 const diffInTime = today.getTime() - startDate.getTime();
 const gameNumber = Math.round(diffInTime / oneDay);
 
 //Function on button to share stats
-let completedIn = 3;
+let completedIn = rowCount;
 let solution = `\n⬛⬛🟨⬛⬛ \n⬛🟨🟨🟨⬛ \n🟩🟩🟩🟩🟩`;
 
 function shareStats() {
-  const personalStats = `Wordle ${gameNumber} ${completedIn}/6 ${solution}`;
+  const personalStats = `Word-IT ${gameNumber} ${completedIn}/6 ${solution}`;
   navigator.clipboard.writeText(personalStats).then(function () {
     confirm.classList.add("visible");
     setTimeout(function () {
