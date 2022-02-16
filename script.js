@@ -13,7 +13,10 @@ let night = true;
 
 let guesses = {
   played: 10,
-  lost: 1,
+  lost: 0,
+  streak: 0,
+  "max streak": 0,
+  "last-win": 0,
   1: 0,
   2: 0,
   3: 0,
@@ -24,9 +27,14 @@ let guesses = {
 
 played.innerHTML = guesses.played;
 let winPercent = 100;
-if (guesses.played === 0) winPercent = 0;
-if (guesses.lost !== 0) winPercent = (guesses.lost / guesses.played) * 100;
-winData.innerHTML = Math.round(100 - winPercent);
+if (guesses.played === 0) {
+  winData.innerHTML = 0;
+} else if (guesses.lost === 0) {
+  winData.innerHTML = 100;
+} else {
+  winPercent = (guesses.lost / guesses.played) * 100;
+  winData.innerHTML = Math.round(100 - winPercent);
+}
 
 //Function for GamePlay
 let dailyWord = ["m", "o", "u", "s", "e"];
@@ -78,8 +86,9 @@ function wordCheck() {
     guesses.lost = guesses.lost + 1;
     winPercent = (guesses.lost / guesses.played) * 100;
     winData.innerHTML = Math.round(100 - winPercent);
-    //update steak & max
-    //update progress bar
+    //update steak
+    guesses.streak = 0;
+    guesses["last-win"] = 0;
     //save data to local storage
     let message = document.getElementById("lose");
     message.classList.add("visible");
@@ -98,11 +107,13 @@ function winner() {
   guesses.played = guesses.played + 1;
   guesses[rowCount] = guesses[rowCount] + 1;
   played.innerHTML = guesses.played;
-  guesses.lost === 0
-    ? (winPercent = 100)
-    : (winPercent = (guesses.lost / guesses.played) * 100);
-  winData.innerHTML = Math.round(100 - winPercent);
-  //update steak & max
+  if (guesses.lost === 0) {
+    winData.innerHTML = 100;
+  } else {
+    winPercent = (guesses.lost / guesses.played) * 100;
+    winData.innerHTML = Math.round(100 - winPercent);
+  }
+  //update lastwin, steak & check max
   //use rowCount to update guesses obj
   //update progress bar
   //save played, win, ??, to local storage
@@ -168,18 +179,18 @@ function getTime() {
 }
 
 //Function to calculate game no. (game number increases by one each day)
-const startDate = new Date("01/29/2021");
+const startDate = new Date("01/25/2022");
 let today = new Date();
 const oneDay = 1000 * 60 * 60 * 24; //in milliseconds
 const diffInTime = today.getTime() - startDate.getTime();
 const gameNumber = Math.round(diffInTime / oneDay);
 
 //Function on button to share stats
-let completedIn = 3;
+let completedIn = rowCount;
 let solution = `\n⬛⬛🟨⬛⬛ \n⬛🟨🟨🟨⬛ \n🟩🟩🟩🟩🟩`;
 
 function shareStats() {
-  const personalStats = `Wordle ${gameNumber} ${completedIn}/6 ${solution}`;
+  const personalStats = `Word-IT ${gameNumber} ${completedIn}/6 ${solution}`;
   navigator.clipboard.writeText(personalStats).then(function () {
     confirm.classList.add("visible");
     setTimeout(function () {
