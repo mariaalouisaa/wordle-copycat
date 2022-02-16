@@ -76,10 +76,8 @@ function wordCheck() {
     guesses.played = guesses.played + 1;
     played.innerHTML = guesses.played;
     guesses.lost = guesses.lost + 1;
-    //update win%
     winPercent = (guesses.lost / guesses.played) * 100;
     winData.innerHTML = Math.round(100 - winPercent);
-
     //update steak & max
     //update progress bar
     //save data to local storage
@@ -100,12 +98,12 @@ function winner() {
   guesses.played = guesses.played + 1;
   guesses[rowCount] = guesses[rowCount] + 1;
   played.innerHTML = guesses.played;
-  //update win%
   guesses.lost === 0
     ? (winPercent = 100)
     : (winPercent = (guesses.lost / guesses.played) * 100);
   winData.innerHTML = Math.round(100 - winPercent);
   //update steak & max
+  //use rowCount to update guesses obj
   //update progress bar
   //save played, win, ??, to local storage
   let message = document.getElementById("win");
