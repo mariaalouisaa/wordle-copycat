@@ -13,25 +13,16 @@ let night = true;
 let dailyWord = ["c", "o", "d", "e", "r"];
 let typedWord = [];
 
-document.addEventListener("keydown", (event) => {
-  let key = event.key;
-  if (/^[a-z]$/.test(key) && typedWord.length <= 4) {
-    cells[currentCell].innerHTML = key.toUpperCase();
-    typedWord.push(key);
-    currentCell++;
-  }
-  if (key === "Enter") wordCheck();
-  if (key === "Backspace") deleteLetter();
-});
-
 function gamePlay(event) {
-  if (/^[a-z]$/.test(event.target.value) && typedWord.length <= 4) {
-    cells[currentCell].innerHTML = event.target.value.toUpperCase();
-    typedWord.push(event.target.value);
+  let letter;
+  event.key ? (letter = event.key) : (letter = event.target.value);
+  if (/^[a-z]$/.test(letter) && typedWord.length <= 4) {
+    cells[currentCell].innerHTML = letter.toUpperCase();
+    typedWord.push(letter);
     currentCell++;
   }
-  if (event.target.value === "enter") wordCheck();
-  if (event.target.value === "delete") deleteLetter();
+  if (letter === "Enter") wordCheck();
+  if (letter === "Backspace") deleteLetter();
 }
 
 function wordCheck() {
@@ -63,6 +54,7 @@ function deleteLetter() {
   }
 }
 
+document.addEventListener("keydown", gamePlay);
 boardkeys.forEach((key) => key.addEventListener("click", gamePlay));
 
 //Function for "Next Wordle" countdown (on stats pop-up)
