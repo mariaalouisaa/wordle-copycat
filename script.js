@@ -66,6 +66,8 @@ function wordCheck() {
   if (currentCell === 30 && dailyWord.join("") !== typedWord.join("")) {
     guesses.played = guesses.played + 1;
     guesses.lost = guesses.lost + 1;
+    //amazing job pop up and dissapear
+    //then statistics popup and stay
   }
   typedWord = [];
   rowCount++;
@@ -75,7 +77,16 @@ function winner() {
   guesses.played = guesses.played + 1;
   guesses[rowCount] = guesses[rowCount] + 1;
   console.log(guesses);
-  //update stats - played
+  //save data to local storage
+  //winner pop up
+  let message = document.getElementById("win");
+  message.classList.add("visible");
+  setTimeout(function () {
+    message.classList.remove("visible");
+    setTimeout(() => {
+      showStats(), 1200;
+    });
+  }, 1200);
 }
 
 function deleteLetter() {
