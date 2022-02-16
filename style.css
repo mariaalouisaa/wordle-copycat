@@ -10,11 +10,11 @@
 
 /* Styling for whole app*/
 body {
+  margin: 0 auto;
   font-family: sans-serif;
   color: var(--white);
   background: var(--darkgrey);
   max-width: 40em;
-  margin: 0 auto;
 }
 
 h2 {
@@ -243,4 +243,31 @@ progress {
 
 .lightbutton {
   color: var(--darkgrey);
+}
+
+@media (max-width: 500px) {
+  .keyboard {
+    margin-top: 3em;
+  }
+  .keyboard button {
+    font-weight: 600;
+    font-size: 1em;
+    min-width: 2em;
+  }
+  .instructions,
+  .statistics {
+    width: 80%;
+    font-size: smaller;
+  }
+}
+
+@media (max-width: 375px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  .keyboard button {
+    font-size: 0.8em;
+    min-width: 2em;
+    padding: 0.5em;
+  }
 }
