@@ -9,8 +9,19 @@ let currentCell = 0;
 let rowCount = 1;
 let night = true;
 
+let guesses = {
+  played: 0,
+  lost: 0,
+  1: 0,
+  2: 0,
+  3: 0,
+  4: 0,
+  5: 0,
+  6: 0,
+};
+
 //Function for GamePlay
-let dailyWord = ["c", "o", "d", "e", "r"];
+let dailyWord = ["m", "o", "u", "s", "e"];
 let typedWord = [];
 
 function gamePlay(event) {
@@ -50,8 +61,21 @@ function wordCheck() {
       letterButton.style.opacity = "0.4";
     }
   });
+
+  if (dailyWord.join("") === typedWord.join("")) winner();
+  if (currentCell === 30 && dailyWord.join("") !== typedWord.join("")) {
+    guesses.played = guesses.played + 1;
+    guesses.lost = guesses.lost + 1;
+  }
   typedWord = [];
   rowCount++;
+}
+
+function winner() {
+  guesses.played = guesses.played + 1;
+  guesses[rowCount] = guesses[rowCount] + 1;
+  console.log(guesses);
+  //update stats - played
 }
 
 function deleteLetter() {
@@ -64,6 +88,30 @@ function deleteLetter() {
 
 document.addEventListener("keydown", gamePlay);
 boardkeys.forEach((key) => key.addEventListener("click", gamePlay));
+
+//Function to calculate & display guess distribution
+const progressBars = document.querySelectorAll("progress");
+const barsArr = Array.from(progressBars);
+
+/* 
+
+guesses.one === 0
+  ? (barsArr[0].value = 1)
+  : (barsArr[0].value = (guesses[1] / guesses.played) * 100);
+guesses.two === 0
+  ? (barsArr[1].value = 1)
+  : (barsArr[1].value = (guesses[2] / guesses.played) * 100);
+guesses.three === 0
+  ? (barsArr[2].value = 1)
+  : (barsArr[2].value = (guesses[3] / guesses.played) * 100);
+guesses.four === 0
+  ? (barsArr[3].value = 1)
+  : (barsArr[3].value = (guesses[4] / guesses.played) * 100);
+guesses.five === 0
+  ? (barsArr[4].value = 1)
+  : (barsArr[4].value = (guesses[5] / guesses.played) * 100);
+barsArr[5].value = 10;
+*/
 
 //Function for "Next Wordle" countdown (on stats pop-up)
 const time = document.getElementById("coundown");
@@ -80,37 +128,6 @@ function getTime() {
 
   time.innerHTML = `${hours}:${mins}:${secs}`;
 }
-
-//Function to calculate & display guess distribution
-const progressBars = document.querySelectorAll("progress");
-const barsArr = Array.from(progressBars);
-
-let guesses = {
-  played: 15,
-  one: 0,
-  two: 1,
-  three: 6,
-  four: 4,
-  five: 2,
-  six: 2,
-};
-
-guesses.one === 0
-  ? (barsArr[0].value = 1)
-  : (barsArr[0].value = (guesses.one / guesses.played) * 100);
-guesses.two === 0
-  ? (barsArr[1].value = 1)
-  : (barsArr[1].value = (guesses.two / guesses.played) * 100);
-guesses.three === 0
-  ? (barsArr[2].value = 1)
-  : (barsArr[2].value = (guesses.three / guesses.played) * 100);
-guesses.four === 0
-  ? (barsArr[3].value = 1)
-  : (barsArr[3].value = (guesses.four / guesses.played) * 100);
-guesses.five === 0
-  ? (barsArr[4].value = 1)
-  : (barsArr[4].value = (guesses.five / guesses.played) * 100);
-barsArr[5].value = 10;
 
 //Function to calculate game no. (game number increases by one each day)
 const startDate = new Date("01/29/2021");
