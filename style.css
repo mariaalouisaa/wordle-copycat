@@ -168,12 +168,12 @@ button:hover {
 progress {
   appearance: none;
   -webkit-appearance: none;
-  background-color: var(--darkgrey);
+  background-color: transparent;
   border: none;
 }
 
 ::-webkit-progress-bar {
-  background-color: var(--darkgrey);
+  background-color: transparent;
   width: 18em;
 }
 
