@@ -175,7 +175,7 @@ progress {
 
 ::-webkit-progress-bar {
   background-color: transparent;
-  width: 18em;
+  width: 10em;
 }
 
 ::-webkit-progress-value {

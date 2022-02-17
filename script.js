@@ -12,7 +12,7 @@ let rowCount = 1;
 let night = true;
 
 let guesses = {
-  played: 10,
+  played: 0,
   lost: 0,
   streak: 0,
   "max streak": 0,
@@ -25,6 +25,7 @@ let guesses = {
   6: 0,
 };
 
+//games won % (in stats popup) on load
 played.innerHTML = guesses.played;
 let winPercent = 100;
 if (guesses.played === 0) {
@@ -37,7 +38,7 @@ if (guesses.played === 0) {
 }
 
 //Function for GamePlay
-let dailyWord = ["m", "o", "u", "s", "e"];
+let dailyWord = ["t", "u", "n", "i", "c"];
 document.getElementById("word").innerHTML = dailyWord.join("");
 let typedWord = [];
 
@@ -114,8 +115,8 @@ function winner() {
     winData.innerHTML = Math.round(100 - winPercent);
   }
   //update lastwin, steak & check max
-  //use rowCount to update guesses obj
   //update progress bar
+  loadProgressBars();
   //save played, win, ??, to local storage
   let message = document.getElementById("win");
   message.classList.add("visible");
@@ -142,25 +143,26 @@ boardkeys.forEach((key) => key.addEventListener("click", gamePlay));
 const progressBars = document.querySelectorAll("progress");
 const barsArr = Array.from(progressBars);
 
-/* 
-
-guesses.one === 0
-  ? (barsArr[0].value = 1)
-  : (barsArr[0].value = (guesses[1] / guesses.played) * 100);
-guesses.two === 0
-  ? (barsArr[1].value = 1)
-  : (barsArr[1].value = (guesses[2] / guesses.played) * 100);
-guesses.three === 0
-  ? (barsArr[2].value = 1)
-  : (barsArr[2].value = (guesses[3] / guesses.played) * 100);
-guesses.four === 0
-  ? (barsArr[3].value = 1)
-  : (barsArr[3].value = (guesses[4] / guesses.played) * 100);
-guesses.five === 0
-  ? (barsArr[4].value = 1)
-  : (barsArr[4].value = (guesses[5] / guesses.played) * 100);
-barsArr[5].value = 10;
-*/
+function loadProgressBars() {
+  guesses[1] === 0
+    ? (barsArr[0].value = 1)
+    : (barsArr[0].value = (guesses[1] / guesses.played) * 100);
+  guesses[2] === 0
+    ? (barsArr[1].value = 1)
+    : (barsArr[1].value = (guesses[2] / guesses.played) * 100);
+  guesses[3] === 0
+    ? (barsArr[2].value = 1)
+    : (barsArr[2].value = (guesses[3] / guesses.played) * 100);
+  guesses[4] === 0
+    ? (barsArr[3].value = 1)
+    : (barsArr[3].value = (guesses[4] / guesses.played) * 100);
+  guesses[5] === 0
+    ? (barsArr[4].value = 1)
+    : (barsArr[4].value = (guesses[5] / guesses.played) * 100);
+  guesses[6] === 0
+    ? (barsArr[5].value = 1)
+    : (barsArr[5].value = (guesses[6] / guesses.played) * 100);
+}
 
 //Function for "Next Wordle" countdown (on stats pop-up)
 const time = document.getElementById("coundown");
@@ -240,3 +242,5 @@ function nightToggle() {
     ? (sun.innerHTML = `<i class="fas fa-sun"></i>`)
     : (sun.innerHTML = '<i class="fas fa-moon"></i>');
 }
+
+loadProgressBars();
