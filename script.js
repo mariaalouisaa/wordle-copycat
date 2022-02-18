@@ -10,12 +10,15 @@ const boardkeys = Array.from(document.querySelectorAll(".keyboard button"));
 let currentCell = 0;
 let rowCount = 1;
 let night = true;
+let yday = new Date();
+yday.setDate(yday.getDate() - 1);
 
+//object template for localstorage
 let guesses = {
   played: 0,
   lost: 0,
   streak: 0,
-  "max streak": 0,
+  "max-streak": 0,
   "last-win": 0,
   1: 0,
   2: 0,
@@ -29,8 +32,6 @@ if (!localStorage.getItem("storedGuesses")) {
   localStorage.setItem("storedGuesses", JSON.stringify(guesses));
 }
 let storedGuesses = JSON.parse(localStorage.getItem("storedGuesses"));
-console.log(storedGuesses);
-console.log(localStorage);
 
 //games won % (in stats popup) on load
 played.innerHTML = storedGuesses.played;
@@ -44,7 +45,7 @@ if (storedGuesses.played === 0) {
   winData.innerHTML = Math.round(100 - winPercent);
 }
 
-//Function for GamePlay
+//Functions for GamePlay
 let dailyWord = ["t", "u", "n", "i", "c"];
 document.getElementById("word").innerHTML = dailyWord.join("");
 let typedWord = [];
@@ -89,15 +90,13 @@ function wordCheck() {
 
   if (dailyWord.join("") === typedWord.join("")) winner();
   if (currentCell === 30 && dailyWord.join("") !== typedWord.join("")) {
-    storedGuesses.played = storedGuesses.played + 1;
-    played.innerHTML = guesses.played;
-    storedGuesses.lost = storedGuesses.lost + 1;
+    storedGuesses.played++;
+    played.innerHTML = storedGuesses.played;
+    storedGuesses.lost++;
     winPercent = (storedGuesses.lost / storedGuesses.played) * 100;
     winData.innerHTML = Math.round(100 - winPercent);
-    //update steak in inner.HTML
     storedGuesses.streak = 0;
     storedGuesses["last-win"] = 0;
-    //save data to local storage
     let message = document.getElementById("lose");
     message.classList.add("visible");
     setTimeout(function () {
@@ -112,7 +111,7 @@ function wordCheck() {
 }
 
 function winner() {
-  storedGuesses.played = storedGuesses.played + 1;
+  storedGuesses.played++;
   played.innerHTML = storedGuesses.played;
   if (storedGuesses.lost === 0) {
     winData.innerHTML = 100;
@@ -120,10 +119,15 @@ function winner() {
     winPercent = (storedGuesses.lost / storedGuesses.played) * 100;
     winData.innerHTML = Math.round(100 - winPercent);
   }
-  storedGuesses[rowCount] = storedGuesses[rowCount] + 1;
+  storedGuesses[rowCount]++;
   loadProgressBars();
-  //update lastwin, steak & check max
-  //save played, win, ??, to local storage
+  storedGuesses["last-win"] === yday
+    ? storedGuesses.streak++
+    : (storedGuesses.streak = 1);
+  storedGuesses["max-streak"] < storedGuesses.streak
+    ? (storedGuesses["max-streak"] = storedGuesses.streak)
+    : null;
+  storedGuesses["last-win"] = new Date();
   console.log(storedGuesses);
   localStorage.setItem("storedGuesses", JSON.stringify(storedGuesses));
   console.log(localStorage);
