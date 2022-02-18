@@ -25,15 +25,22 @@ let guesses = {
   6: 0,
 };
 
+if (!localStorage.getItem("storedGuesses")) {
+  localStorage.setItem("storedGuesses", JSON.stringify(guesses));
+}
+let storedGuesses = JSON.parse(localStorage.getItem("storedGuesses"));
+console.log(storedGuesses);
+console.log(localStorage);
+
 //games won % (in stats popup) on load
-played.innerHTML = guesses.played;
+played.innerHTML = storedGuesses.played;
 let winPercent = 100;
-if (guesses.played === 0) {
+if (storedGuesses.played === 0) {
   winData.innerHTML = 0;
-} else if (guesses.lost === 0) {
+} else if (storedGuesses.lost === 0) {
   winData.innerHTML = 100;
 } else {
-  winPercent = (guesses.lost / guesses.played) * 100;
+  winPercent = (storedGuesses.lost / storedGuesses.played) * 100;
   winData.innerHTML = Math.round(100 - winPercent);
 }
 
@@ -82,14 +89,14 @@ function wordCheck() {
 
   if (dailyWord.join("") === typedWord.join("")) winner();
   if (currentCell === 30 && dailyWord.join("") !== typedWord.join("")) {
-    guesses.played = guesses.played + 1;
+    storedGuesses.played = storedGuesses.played + 1;
     played.innerHTML = guesses.played;
-    guesses.lost = guesses.lost + 1;
-    winPercent = (guesses.lost / guesses.played) * 100;
+    storedGuesses.lost = storedGuesses.lost + 1;
+    winPercent = (storedGuesses.lost / storedGuesses.played) * 100;
     winData.innerHTML = Math.round(100 - winPercent);
-    //update steak
-    guesses.streak = 0;
-    guesses["last-win"] = 0;
+    //update steak in inner.HTML
+    storedGuesses.streak = 0;
+    storedGuesses["last-win"] = 0;
     //save data to local storage
     let message = document.getElementById("lose");
     message.classList.add("visible");
@@ -105,19 +112,21 @@ function wordCheck() {
 }
 
 function winner() {
-  guesses.played = guesses.played + 1;
-  guesses[rowCount] = guesses[rowCount] + 1;
-  played.innerHTML = guesses.played;
-  if (guesses.lost === 0) {
+  storedGuesses.played = storedGuesses.played + 1;
+  played.innerHTML = storedGuesses.played;
+  if (storedGuesses.lost === 0) {
     winData.innerHTML = 100;
   } else {
-    winPercent = (guesses.lost / guesses.played) * 100;
+    winPercent = (storedGuesses.lost / storedGuesses.played) * 100;
     winData.innerHTML = Math.round(100 - winPercent);
   }
-  //update lastwin, steak & check max
-  //update progress bar
+  storedGuesses[rowCount] = storedGuesses[rowCount] + 1;
   loadProgressBars();
+  //update lastwin, steak & check max
   //save played, win, ??, to local storage
+  console.log(storedGuesses);
+  localStorage.setItem("storedGuesses", JSON.stringify(storedGuesses));
+  console.log(localStorage);
   let message = document.getElementById("win");
   message.classList.add("visible");
   setTimeout(function () {
@@ -144,24 +153,24 @@ const progressBars = document.querySelectorAll("progress");
 const barsArr = Array.from(progressBars);
 
 function loadProgressBars() {
-  guesses[1] === 0
+  storedGuesses[1] === 0
     ? (barsArr[0].value = 1)
-    : (barsArr[0].value = (guesses[1] / guesses.played) * 100);
-  guesses[2] === 0
+    : (barsArr[0].value = (storedGuesses[1] / storedGuesses.played) * 100);
+  storedGuesses[2] === 0
     ? (barsArr[1].value = 1)
-    : (barsArr[1].value = (guesses[2] / guesses.played) * 100);
-  guesses[3] === 0
+    : (barsArr[1].value = (storedGuesses[2] / storedGuesses.played) * 100);
+  storedGuesses[3] === 0
     ? (barsArr[2].value = 1)
-    : (barsArr[2].value = (guesses[3] / guesses.played) * 100);
-  guesses[4] === 0
+    : (barsArr[2].value = (storedGuesses[3] / storedGuesses.played) * 100);
+  storedGuesses[4] === 0
     ? (barsArr[3].value = 1)
-    : (barsArr[3].value = (guesses[4] / guesses.played) * 100);
-  guesses[5] === 0
+    : (barsArr[3].value = (storedGuesses[4] / storedGuesses.played) * 100);
+  storedGuesses[5] === 0
     ? (barsArr[4].value = 1)
-    : (barsArr[4].value = (guesses[5] / guesses.played) * 100);
-  guesses[6] === 0
+    : (barsArr[4].value = (storedGuesses[5] / storedGuesses.played) * 100);
+  storedGuesses[6] === 0
     ? (barsArr[5].value = 1)
-    : (barsArr[5].value = (guesses[6] / guesses.played) * 100);
+    : (barsArr[5].value = (storedGuesses[6] / storedGuesses.played) * 100);
 }
 
 //Function for "Next Wordle" countdown (on stats pop-up)
