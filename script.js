@@ -122,11 +122,13 @@ function wordCheck() {
     storedGuesses.streak = 0;
     currStreak.innerHTML = storedGuesses.streak;
     storedGuesses["last-win"] = 0;
+    localStorage.setItem("storedGuesses", JSON.stringify(storedGuesses));
+
     let message = document.getElementById("lose");
     message.innerHTML = `
     The word was:
     ${dailyWord.join("")}!
-    
+
     Better luck next time...`;
     message.classList.add("visible");
     setTimeout(function () {
