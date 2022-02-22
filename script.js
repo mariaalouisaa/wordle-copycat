@@ -19,22 +19,28 @@ let dailyWord = [];
 //GET API and set daily word
 const apiKey = `309ggfsgh2tyi9nf1filwvk5ty39flkjel91q7mbzmkaq09np`;
 
-fetch(
-  `https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&includePartOfSpeech=adjective&maxCorpusCount=4000&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=5&api_key=${apiKey}`
-)
-  .then((response) => {
-    if (!response.ok) throw new Error(response.status);
-    return response.json();
-  })
-  .then((data) => {
-    let apiword = data.word.split("");
-    apiword.forEach((letter) => dailyWord.push(letter.toLowerCase()));
-  })
-  .catch((error) => {
-    dailyWord = ["g", "l", "o", "a", "t"];
-    console.error(`${error}
+function fetchAPI() {
+  fetch(
+    `https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&includePartOfSpeech=adjective&minCorpusCount=4000&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=5&api_key=${apiKey}`
+  )
+    .then((response) => {
+      if (!response.ok) throw new Error(response.status);
+      return response.json();
+    })
+    .then((data) => {
+      let apiword = data.word.split("");
+      if (apiword.includes("-") || apiword.includes("'")) {
+        fetchAPI();
+      } else {
+        apiword.forEach((letter) => dailyWord.push(letter.toLowerCase()));
+      }
+    })
+    .catch((error) => {
+      dailyWord = ["g", "l", "o", "a", "t"];
+      console.error(`${error}
     Problem fetching API, default word used in place`);
-  });
+    });
+}
 
 //object template for localstorage
 let guesses = {
@@ -289,3 +295,4 @@ function nightToggle() {
 }
 
 loadProgressBars();
+fetchAPI();
