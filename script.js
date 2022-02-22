@@ -9,9 +9,7 @@ const maxStreak = document.getElementById("m-streak");
 const win = document.getElementById("winData");
 const sun = document.querySelector(".sun");
 const boardkeys = Array.from(document.querySelectorAll(".keyboard button"));
-let currentCell = 0;
-let rowCount = 1;
-let night = true;
+let [currentCell, rowCount, night] = [0, 1, true];
 let yday = new Date();
 yday.setDate(yday.getDate() - 1);
 let dailyWord = [];
@@ -282,15 +280,11 @@ function showStats() {
 
 function nightToggle() {
   night ? (night = false) : (night = true);
-  document.querySelector("body").classList.toggle("lightmode");
-  document.querySelector(".statistics").classList.toggle("lightmode");
-  document.querySelector(".instructions").classList.toggle("lightmode");
-  document.querySelector(".but-one").classList.toggle("lightbutton");
-  document.querySelector(".but-two").classList.toggle("lightbutton");
-  document.querySelector(".exit").classList.toggle("lightbutton");
-  document.querySelector(".exit-2").classList.toggle("lightbutton");
 
-  sun.classList.toggle("lightbutton");
+  Array.from(document.querySelectorAll(".light")).forEach((element) => {
+    element.classList.toggle("lightmode");
+  });
+
   night
     ? (sun.innerHTML = `<i class="fas fa-sun"></i>`)
     : (sun.innerHTML = '<i class="fas fa-moon"></i>');
