@@ -9,9 +9,7 @@ const maxStreak = document.getElementById("m-streak");
 const win = document.getElementById("winData");
 const sun = document.querySelector(".sun");
 const boardkeys = Array.from(document.querySelectorAll(".keyboard button"));
-let currentCell = 0;
-let rowCount = 1;
-let night = true;
+let [currentCell, rowCount, night] = [0, 1, true];
 let yday = new Date();
 yday.setDate(yday.getDate() - 1);
 let dailyWord = [];
@@ -19,22 +17,30 @@ let dailyWord = [];
 //GET API and set daily word
 const apiKey = `309ggfsgh2tyi9nf1filwvk5ty39flkjel91q7mbzmkaq09np`;
 
-fetch(
-  `https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&includePartOfSpeech=adjective&maxCorpusCount=4000&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=5&api_key=${apiKey}`
-)
-  .then((response) => {
-    if (!response.ok) throw new Error(response.status);
-    return response.json();
-  })
-  .then((data) => {
-    let apiword = data.word.split("");
-    apiword.forEach((letter) => dailyWord.push(letter.toLowerCase()));
-  })
-  .catch((error) => {
-    dailyWord = ["g", "l", "o", "a", "t"];
-    console.error(`${error}
+function fetchAPI() {
+  fetch(
+    `https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&includePartOfSpeech=adjective&minCorpusCount=4000&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=5&api_key=${apiKey}`
+  )
+    .then((response) => {
+      if (!response.ok) throw new Error(response.status);
+      return response.json();
+    })
+    .then((data) => {
+      let apiword = data.word.split("");
+      if (apiword.includes("-") || apiword.includes("'")) {
+        fetchAPI();
+      } else if (new Set(apiword).size !== apiword.length) {
+        fetchAPI();
+      } else {
+        apiword.forEach((letter) => dailyWord.push(letter.toLowerCase()));
+      }
+    })
+    .catch((error) => {
+      dailyWord = ["g", "l", "o", "a", "t"];
+      console.error(`${error}
     Problem fetching API, default word used in place`);
-  });
+    });
+}
 
 //object template for localstorage
 let guesses = {
@@ -274,18 +280,15 @@ function showStats() {
 
 function nightToggle() {
   night ? (night = false) : (night = true);
-  document.querySelector("body").classList.toggle("lightmode");
-  document.querySelector(".statistics").classList.toggle("lightmode");
-  document.querySelector(".instructions").classList.toggle("lightmode");
-  document.querySelector(".but-one").classList.toggle("lightbutton");
-  document.querySelector(".but-two").classList.toggle("lightbutton");
-  document.querySelector(".exit").classList.toggle("lightbutton");
-  document.querySelector(".exit-2").classList.toggle("lightbutton");
 
-  sun.classList.toggle("lightbutton");
+  Array.from(document.querySelectorAll(".light")).forEach((element) => {
+    element.classList.toggle("lightmode");
+  });
+
   night
     ? (sun.innerHTML = `<i class="fas fa-sun"></i>`)
     : (sun.innerHTML = '<i class="fas fa-moon"></i>');
 }
 
 loadProgressBars();
+fetchAPI();

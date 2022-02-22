@@ -13,25 +13,21 @@
     <link rel="stylesheet" href="style.css" />
     <title>Wordle Copycat || WORD-IT</title>
   </head>
-  <body>
+  <body class="light">
     <!-- Header -->
     <header>
       <div class="flex">
         <div class="buttons">
-          <button
-            class="but-one"
-            aria-label="help"
-            onclick="showInstructions()"
-          >
+          <button class="light" aria-label="help" onclick="showInstructions()">
             <i class="far fa-question-circle"></i>
           </button>
-          <button class="but-two" aria-label="statistics" onclick="showStats()">
+          <button class="light" aria-label="statistics" onclick="showStats()">
             <i class="fas fa-chart-line"></i>
           </button>
         </div>
         <h1>WORD-IT</h1>
         <button
-          class="sun"
+          class="sun light"
           aria-label="toggle night mode"
           onclick="nightToggle()"
         >
@@ -111,12 +107,12 @@
     </div>
 
     <!-- Instructions pop-up -->
-    <div class="instructions pop-up hidden" id="instructions">
+    <div class="instructions pop-up hidden light" id="instructions">
       <div class="header flex">
         <h2>HOW TO PLAY</h2>
         <button
           onclick="exitDisplay(instructions)"
-          class="exit"
+          class="light"
           aria-label="exit instructions"
         >
           <i class="fas fa-times"></i>
@@ -159,12 +155,12 @@
       <p class="border"><b>A new WORD-IT will be available each day!</b></p>
     </div>
     <!-- Statistics pop-up -->
-    <div class="statistics pop-up hidden" id="statistics">
+    <div class="statistics pop-up hidden light" id="statistics">
       <div class="header flex">
         <h2>STATISTICS</h2>
         <button
           onclick="exitDisplay(stats)"
-          class="exit-2"
+          class="light"
           aria-label="exit settings"
         >
           <i class="fas fa-times"></i>
