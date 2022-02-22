@@ -31,6 +31,8 @@ function fetchAPI() {
       let apiword = data.word.split("");
       if (apiword.includes("-") || apiword.includes("'")) {
         fetchAPI();
+      } else if (new Set(apiword).size !== apiword.length) {
+        fetchAPI();
       } else {
         apiword.forEach((letter) => dailyWord.push(letter.toLowerCase()));
       }
