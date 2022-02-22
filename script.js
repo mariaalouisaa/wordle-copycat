@@ -123,6 +123,11 @@ function wordCheck() {
     currStreak.innerHTML = storedGuesses.streak;
     storedGuesses["last-win"] = 0;
     let message = document.getElementById("lose");
+    message.innerHTML = `
+    The word was:
+    ${dailyWord.join("")}!
+    
+    Better luck next time...`;
     message.classList.add("visible");
     setTimeout(function () {
       message.classList.remove("visible");
