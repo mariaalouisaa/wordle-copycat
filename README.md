@@ -25,13 +25,15 @@ Take home challenge, inspired by the latest craze: [Wordle](https://www.powerlan
 - Progress bars to display the percentage of wins
 - Responsive design
 - DOM manipulation
+- Stats saves to localStorage()
+- GET requests made to [WordAPI](https://developer.wordnik.com/) to fetch random word on every page load!
 
 ---
 
-## Still to come...
+## Still to do...
 
-- Stats saved to localStorage
-- WordAPI linked to generate random word daily
+- Visual feedback to a user if a word entered is not a word
+- Testing & code refactor
 
 ### Project screenshots
 
