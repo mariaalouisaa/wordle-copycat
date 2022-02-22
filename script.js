@@ -4,6 +4,8 @@ const confirm = document.getElementById("confirm-msg");
 const settings = document.getElementById("settings");
 const cells = Array.from(document.querySelectorAll(".cell"));
 const played = document.getElementById("played");
+const currStreak = document.getElementById("c-streak");
+const maxStreak = document.getElementById("m-streak");
 const win = document.getElementById("winData");
 const sun = document.querySelector(".sun");
 const boardkeys = Array.from(document.querySelectorAll(".keyboard button"));
@@ -56,6 +58,8 @@ let storedGuesses = JSON.parse(localStorage.getItem("storedGuesses"));
 
 //games won % (in stats popup) on load
 played.innerHTML = storedGuesses.played;
+currStreak.innerHTML = storedGuesses.streak;
+maxStreak.innerHTML = storedGuesses["max streak"];
 let winPercent = 100;
 if (storedGuesses.played === 0) {
   winData.innerHTML = 0;
@@ -116,8 +120,16 @@ function wordCheck() {
     winPercent = (storedGuesses.lost / storedGuesses.played) * 100;
     winData.innerHTML = Math.round(100 - winPercent);
     storedGuesses.streak = 0;
+    currStreak.innerHTML = storedGuesses.streak;
     storedGuesses["last-win"] = 0;
+    localStorage.setItem("storedGuesses", JSON.stringify(storedGuesses));
+
     let message = document.getElementById("lose");
+    message.innerHTML = `
+    The word was:
+    ${dailyWord.join("")}!
+
+    Better luck next time...`;
     message.classList.add("visible");
     setTimeout(function () {
       message.classList.remove("visible");
@@ -144,13 +156,13 @@ function winner() {
   storedGuesses["last-win"] === yday
     ? storedGuesses.streak++
     : (storedGuesses.streak = 1);
-  storedGuesses["max-streak"] < storedGuesses.streak
-    ? (storedGuesses["max-streak"] = storedGuesses.streak)
-    : null;
+  if (storedGuesses["max streak"] < storedGuesses.streak) {
+    storedGuesses["max streak"] = storedGuesses.streak;
+  }
+  currStreak.innerHTML = storedGuesses.streak;
+  maxStreak.innerHTML = storedGuesses["max streak"];
   storedGuesses["last-win"] = new Date();
-  console.log(storedGuesses);
   localStorage.setItem("storedGuesses", JSON.stringify(storedGuesses));
-  console.log(localStorage);
   let message = document.getElementById("win");
   message.classList.add("visible");
   setTimeout(function () {
