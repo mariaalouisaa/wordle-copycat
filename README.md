@@ -46,3 +46,7 @@ Take home challenge, inspired by the latest craze: [Wordle](https://www.powerlan
 ⭐ Hosted on [Github Pages](https://mariaalouisaa.github.io/wordle-copycat/) ⭐
 
 Coded and maintained entirely my myself. Design a mimic of [Wordle](https://www.powerlanguage.co.uk/wordle/).
+
+---
+
+👀 I have plans to create a simular game, with a different theme, and using React to do so! 
