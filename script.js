@@ -65,7 +65,7 @@ let storedGuesses = JSON.parse(localStorage.getItem("storedGuesses"));
 //games won % (in stats popup) on load
 played.innerHTML = storedGuesses.played;
 currStreak.innerHTML = storedGuesses.streak;
-maxStreak.innerHTML = storedGuesses["max streak"];
+maxStreak.innerHTML = storedGuesses["max-streak"];
 let winPercent = 100;
 if (storedGuesses.played === 0) {
   winData.innerHTML = 0;
